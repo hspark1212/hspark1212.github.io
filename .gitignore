@@ -25,3 +25,6 @@ vite.config.ts.timestamp-*
 
 # VS Code
 .vscode/
+
+# Reference site (not part of project)
+hspark1212.github.io-master/

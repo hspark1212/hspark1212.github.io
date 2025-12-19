@@ -1,3 +1,27 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@theme {
+	/* Custom breakpoints matching original site */
+	--breakpoint-xs: 480px;
+	--breakpoint-sm: 736px;
+	--breakpoint-md: 1024px;
+	--breakpoint-lg: 1280px;
+	--breakpoint-xl: 1680px;
+
+	/* Theme colors from original site */
+	--color-accent: #4acaa8;
+	--color-heading: #777;
+	--color-body: #888;
+	--color-sidebar-bg: #1f2235;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
