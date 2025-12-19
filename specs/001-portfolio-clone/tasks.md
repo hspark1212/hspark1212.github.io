@@ -33,12 +33,12 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 [P] Create profile data (Profile, SocialLink[], NavItem[]) in src/lib/data/profile.ts
-- [ ] T007 [P] Create highlights data (Highlight[]) in src/lib/data/highlights.ts
-- [ ] T008 [P] Create research data (ResearchProject[]) in src/lib/data/research.ts
-- [ ] T009 [P] Create publications data (Publication[]) in src/lib/data/publications.ts
-- [ ] T010 Create Section component wrapper in src/lib/components/Section.svelte
-- [ ] T011 Run npm run lint && npm run check to verify data files
+- [X] T006 [P] Create profile data (Profile, SocialLink[], NavItem[]) in src/lib/data/profile.ts
+- [X] T007 [P] Create highlights data (Highlight[]) in src/lib/data/highlights.ts
+- [X] T008 [P] Create research data (ResearchProject[]) in src/lib/data/research.ts
+- [X] T009 [P] Create publications data (Publication[]) in src/lib/data/publications.ts
+- [X] T010 Create Section component wrapper in src/lib/components/Section.svelte
+- [X] T011 Run npm run lint && npm run check to verify data files
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 

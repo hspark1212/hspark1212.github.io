@@ -27,6 +27,7 @@ TypeScript (strict mode) with Svelte 5: Follow standard conventions
 - 001-portfolio-clone: Added TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x, Svelte 5.x
 
 <!-- MANUAL ADDITIONS START -->
+
 ## Git Commit Guidelines
 
 - Do NOT include "🤖 Generated with [Claude Code](https://claude.com/claude-code)" in commit messages
