@@ -52,13 +52,13 @@
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create Sidebar component in src/lib/components/Sidebar.svelte
-- [ ] T013 [P] [US1] Create social icon SVGs inline in Sidebar component (scholar, twitter, linkedin, github)
-- [ ] T014 [US1] Create introduction section in src/routes/+page.svelte with background image and bio
-- [ ] T015 [US1] Add Sidebar to +page.svelte with fixed positioning on desktop
-- [ ] T016 [US1] Style sidebar per original: 23em width, #4acaa8 accent, Lato font
-- [ ] T017 [US1] Add footer with copyright and HTML5 UP attribution in src/routes/+page.svelte
-- [ ] T018 [US1] Run npm run lint && npm run check && npm run build
+- [X] T012 [P] [US1] Create Sidebar component in src/lib/components/Sidebar.svelte
+- [X] T013 [P] [US1] Create social icon SVGs inline in Sidebar component (scholar, twitter, linkedin, github)
+- [X] T014 [US1] Create introduction section in src/routes/+page.svelte with background image and bio
+- [X] T015 [US1] Add Sidebar to +page.svelte with fixed positioning on desktop
+- [X] T016 [US1] Style sidebar per original: 23em width, #4acaa8 accent, Lato font
+- [X] T017 [US1] Add footer with copyright and HTML5 UP attribution in src/routes/+page.svelte
+- [X] T018 [US1] Run npm run lint && npm run check && npm run build
 
 **Checkpoint**: Homepage loads with sidebar and introduction - core MVP functional
 

@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
@@ -16,6 +15,11 @@
 	--color-heading: #777;
 	--color-body: #888;
 	--color-sidebar-bg: #1f2235;
+
+	/* Border colors */
+	--color-border-section: #f4f4f4;
+	--color-border-link: #e4e4e4;
+	--color-border-nav: #5ccfb1;
 }
 
 html {

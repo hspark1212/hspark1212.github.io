@@ -8,6 +8,7 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
+.playwright-mcp
 
 # OS
 .DS_Store
