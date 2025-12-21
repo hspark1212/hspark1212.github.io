@@ -2,8 +2,15 @@
 	import { onMount } from 'svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import HighlightItem from '$lib/components/HighlightItem.svelte';
+	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import { profile } from '$lib/data/profile';
 	import { highlights } from '$lib/data/highlights';
+	import { researchProjects, molecularSimulationDescription } from '$lib/data/research';
+
+	// Group research projects by category
+	const machineLearning = researchProjects.filter((p) => p.category === 'machine-learning');
+	const molecularSimulation = researchProjects.filter((p) => p.category === 'molecular-simulation');
+	const materialDesign = researchProjects.filter((p) => p.category === 'material-design');
 
 	let activeSection = $state('one');
 
@@ -51,7 +58,7 @@
 	<!-- Main Content -->
 	<div id="main">
 		<!-- Introduction Section -->
-		<section id="one" class="border-t-[6px] border-border-section first:border-t-0">
+		<section id="one">
 			<!-- Background Image -->
 			<div class="image main">
 				<img src="/images/background.jpg" alt="Background" class="w-full" />
@@ -94,10 +101,8 @@
 
 		<!-- Placeholder sections for navigation -->
 		<section id="highlights" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto px-6 pt-24 pb-16">
-				<header class="mb-8">
-					<h2 class="text-3xl leading-relaxed font-bold text-heading">Latest Highlights</h2>
-				</header>
+			<div class="container mx-auto pt-24 pb-16">
+				<h3>Latest Highlights</h3>
 				{#each highlights as highlight (highlight.date + highlight.content.slice(0, 20))}
 					<HighlightItem {highlight} />
 				{/each}
@@ -105,51 +110,67 @@
 		</section>
 
 		<section id="research" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto px-6 pt-24 pb-16">
-				<header class="mb-8">
-					<h3 class="text-3xl leading-relaxed font-bold text-heading">Research</h3>
-				</header>
-				<p class="text-body">Coming in Phase 6...</p>
+			<div class="container mx-auto pt-24 pb-16">
+				<h3>Research</h3>
+
+				<!-- Machine Learning -->
+				<h4>Machine Learning</h4>
+				<div class="features">
+					{#each machineLearning as project (project.title)}
+						<ArticleCard {project} />
+					{/each}
+				</div>
+			</div>
+		</section>
+
+		<!-- Molecular Simulation -->
+		<section id="three" class="border-t-[6px] border-border-section">
+			<div class="container mx-auto pt-24 pb-16">
+				<h3>Molecular Simulation</h3>
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+				<p>{@html molecularSimulationDescription}</p>
+				<div class="features">
+					{#each molecularSimulation as project (project.title)}
+						<ArticleCard {project} />
+					{/each}
+				</div>
+			</div>
+		</section>
+
+		<!-- Material Design -->
+		<section id="four" class="border-t-[6px] border-border-section">
+			<div class="container mx-auto pt-24 pb-16">
+				<h3>Material Design</h3>
+				<div class="features">
+					{#each materialDesign as project (project.title)}
+						<ArticleCard {project} />
+					{/each}
+				</div>
 			</div>
 		</section>
 
 		<section id="publications" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto px-6 pt-24 pb-16">
-				<header class="mb-8">
-					<h3 class="text-3xl leading-relaxed font-bold text-heading">Publications</h3>
-				</header>
-				<p class="text-body">Coming in Phase 7...</p>
+			<div class="container mx-auto pt-24 pb-16">
+				<h3>Publications</h3>
+				<p>Coming in Phase 7...</p>
 			</div>
 		</section>
 
 		<section id="contact" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto px-6 pt-24 pb-16">
-				<header class="mb-8">
-					<h3 class="text-3xl leading-relaxed font-bold text-heading">Contact Me</h3>
-				</header>
-				<p class="text-body">
-					Please email me at <a
-						href="mailto:{profile.email}"
-						class="border-b border-border-link text-inherit transition-colors hover:border-transparent hover:text-accent!"
-					>
-						{profile.email}
-					</a>
-				</p>
+			<div class="container mx-auto pt-24 pb-16">
+				<h3>Contact Me</h3>
+				<p>Please email me at <a href="mailto:{profile.email}">{profile.email}</a></p>
 			</div>
 		</section>
 	</div>
 
 	<!-- Footer -->
 	<section id="footer" class="border-t-[6px] border-border-section">
-		<div class="container mx-auto px-6 py-12 text-center">
-			<ul class="copyright m-0 flex list-none flex-wrap justify-center gap-4 p-0 text-sm text-body">
+		<div class="container mx-auto py-12 text-center">
+			<ul class="copyright flex list-none flex-wrap justify-center gap-4 text-sm">
 				<li>&copy; 2024 Hyunsoo Park. All rights reserved.</li>
 				<li>
-					Design: <a
-						href="http://html5up.net"
-						class="border-b border-border-link text-inherit transition-colors hover:border-transparent hover:text-accent!"
-						target="_blank"
-						rel="noopener noreferrer">HTML5 UP</a
+					Design: <a href="http://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a
 					>
 				</li>
 			</ul>

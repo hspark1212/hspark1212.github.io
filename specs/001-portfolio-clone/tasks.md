@@ -107,11 +107,11 @@
 
 ### Implementation for User Story 4
 
-- [ ] T028 [P] [US4] Create ArticleCard component in src/lib/components/ArticleCard.svelte
-- [ ] T029 [US4] Add research section to src/routes/+page.svelte with category headers
-- [ ] T030 [US4] Style ArticleCard per original: image left (48%), text right (50%), responsive
-- [ ] T031 [US4] Ensure external links open in new tabs with target="_blank" rel="noopener"
-- [ ] T032 [US4] Run npm run lint && npm run check && npm run build
+- [X] T028 [P] [US4] Create ArticleCard component in src/lib/components/ArticleCard.svelte
+- [X] T029 [US4] Add research section to src/routes/+page.svelte with category headers
+- [X] T030 [US4] Style ArticleCard per original: image left (48%), text right (50%), responsive
+- [X] T031 [US4] Ensure external links open in new tabs with target="_blank" rel="noopener"
+- [X] T032 [US4] Run npm run lint && npm run check && npm run build
 
 **Checkpoint**: Research section displays categorized projects correctly
 

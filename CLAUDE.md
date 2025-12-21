@@ -28,6 +28,12 @@ TypeScript (strict mode) with Svelte 5: Follow standard conventions
 
 <!-- MANUAL ADDITIONS START -->
 
+## Original Site Reference
+
+- The original HTML site is located at `hspark1212.github.io-master/`
+- Reference `hspark1212.github.io-master/index.html` for HTML structure
+- Reference `hspark1212.github.io-master/assets/css/main.css` for styling
+
 ## Git Commit Guidelines
 
 - Do NOT include "🤖 Generated with [Claude Code](https://claude.com/claude-code)" in commit messages

@@ -17,8 +17,8 @@
 		<span class="avatar mx-auto mb-9 block w-32 overflow-hidden rounded-full">
 			<img src={profile.avatar} alt={profile.name} class="w-full" />
 		</span>
-		<h1 class="m-0 text-3xl font-bold text-white">
-			<a href="#top" class="border-0 text-inherit no-underline transition-none hover:text-white!">
+		<h1 class="m-0 text-3xl font-bold">
+			<a href="#top" class="border-0 text-white no-underline transition-none">
 				{profile.name}
 			</a>
 		</h1>
@@ -32,10 +32,8 @@
 				<li class={index === 0 ? 'block border-border-nav' : 'block border-t-2 border-border-nav'}>
 					<a
 						href={`#${item.targetId}`}
-						class={`block border-0 px-0 py-3 no-underline transition-none ${
-							activeSection === item.targetId
-								? 'bg-white text-accent!'
-								: 'text-white! hover:text-white!'
+						class={`block border-0 py-3 no-underline transition-none ${
+							activeSection === item.targetId ? 'bg-white text-accent!' : 'text-white!'
 						}`}
 					>
 						{item.label}

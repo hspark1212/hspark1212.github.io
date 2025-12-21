@@ -9,11 +9,8 @@
 </script>
 
 <article class="mb-6">
-	<h3 class="mb-2 text-lg font-bold text-heading">
-		{highlight.date}
-	</h3>
-
 	<p class="highlight-content mb-4 leading-7 text-body">
+		<strong class="text-heading">{highlight.date}</strong>:
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html highlight.content}
 	</p>
