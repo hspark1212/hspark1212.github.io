@@ -72,11 +72,11 @@
 
 ### Implementation for User Story 2
 
-- [ ] T019 [US2] Add smooth scroll CSS to html element in src/routes/layout.css
-- [ ] T020 [US2] Implement active section tracking with IntersectionObserver in src/routes/+page.svelte
-- [ ] T021 [US2] Pass activeSection state to Sidebar and highlight active nav item
-- [ ] T022 [US2] Add section IDs (#one, #highlights, #research, #publications, #contact) to page sections
-- [ ] T023 [US2] Run npm run lint && npm run check && npm run build
+- [X] T019 [US2] Add smooth scroll CSS to html element in src/routes/layout.css
+- [X] T020 [US2] Implement active section tracking with IntersectionObserver in src/routes/+page.svelte
+- [X] T021 [US2] Pass activeSection state to Sidebar and highlight active nav item
+- [X] T022 [US2] Add section IDs (#one, #highlights, #research, #publications, #contact) to page sections
+- [X] T023 [US2] Run npm run lint && npm run check && npm run build
 
 **Checkpoint**: Navigation works with smooth scroll and active highlighting
 

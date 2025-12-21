@@ -1,8 +1,36 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import { profile } from '$lib/data/profile';
 
 	let activeSection = $state('one');
+
+	onMount(() => {
+		const sections = document.querySelectorAll('section[id]');
+		const observerOptions = {
+			root: null,
+			rootMargin: '-50% 0px -50% 0px',
+			threshold: 0
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					activeSection = entry.target.id;
+				}
+			});
+		}, observerOptions);
+
+		sections.forEach((section) => {
+			observer.observe(section);
+		});
+
+		return () => {
+			sections.forEach((section) => {
+				observer.unobserve(section);
+			});
+		};
+	});
 </script>
 
 <svelte:head>
