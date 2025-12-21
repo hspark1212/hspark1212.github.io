@@ -23,11 +23,13 @@
 }
 
 html {
+	font-size: 16pt;
 	scroll-behavior: smooth;
 }
 
 body {
 	font-family: 'Lato', sans-serif;
+	color: var(--color-body);
 }
 
 /* Override Tailwind container to match original site */
@@ -37,14 +39,54 @@ body {
 	width: 45em;
 }
 
-@media screen and (max-width: 1024px) {
-	.container {
-		width: 100% !important;
-	}
+/* Major section headers (Introduction style) */
+.major h2 {
+	font-size: 3.5em;
+	font-weight: 700;
+	line-height: 1.5em;
+	color: var(--color-accent);
 }
 
-@media screen and (max-width: 480px) {
-	.container {
-		max-width: calc(100% - 3.375em);
-	}
+.major p {
+	font-size: 1.75em;
+	font-weight: 700;
+	line-height: 1.5em;
+	color: var(--color-heading);
+	margin-top: 0.5em;
+}
+
+/* Body text */
+p {
+	line-height: 1.75em;
+	margin-bottom: 2.25em;
+}
+
+/* Links in main content */
+#main a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid var(--color-border-link);
+	transition:
+		border-color 0.2s,
+		color 0.2s;
+}
+
+#main a:hover {
+	border-color: transparent;
+	color: var(--color-accent);
+}
+
+/* Footer links */
+#footer a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid var(--color-border-link);
+	transition:
+		border-color 0.2s,
+		color 0.2s;
+}
+
+#footer a:hover {
+	border-color: transparent;
+	color: var(--color-accent);
 }

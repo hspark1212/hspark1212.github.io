@@ -90,10 +90,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T024 [P] [US3] Create HighlightItem component in src/lib/components/HighlightItem.svelte
-- [ ] T025 [US3] Add highlights section to src/routes/+page.svelte using HighlightItem
-- [ ] T026 [US3] Style highlights per original: date format, link styling, optional images
-- [ ] T027 [US3] Run npm run lint && npm run check && npm run build
+- [X] T024 [P] [US3] Create HighlightItem component in src/lib/components/HighlightItem.svelte
+- [X] T025 [US3] Add highlights section to src/routes/+page.svelte using HighlightItem
+- [X] T026 [US3] Style highlights per original: date format, link styling, optional images
+- [X] T027 [US3] Run npm run lint && npm run check && npm run build
 
 **Checkpoint**: Highlights section displays timeline entries correctly
 

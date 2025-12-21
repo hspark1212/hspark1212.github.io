@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import HighlightItem from '$lib/components/HighlightItem.svelte';
 	import { profile } from '$lib/data/profile';
+	import { highlights } from '$lib/data/highlights';
 
 	let activeSection = $state('one');
 
@@ -56,41 +58,33 @@
 			</div>
 
 			<!-- Content Container -->
-			<div class="container mx-auto px-6 pt-24 pb-16">
-				<header class="mb-8">
-					<h2 class="mb-2 text-4xl leading-relaxed font-bold text-heading">Materials.AI</h2>
-					<p class="text-body">I'm Hyunsoo Park.</p>
+			<div class="container mx-auto py-24">
+				<header class="major mb-8">
+					<h2>Materials.AI</h2>
+					<p>I'm Hyunsoo Park.</p>
 				</header>
-				<p class="mb-9 leading-7 text-body">
+				<p>
 					I'm a postdoc researcher in Prof. <a
 						href="https://wmd-group.github.io/"
-						class="border-b border-border-link text-inherit transition-colors hover:border-transparent hover:text-accent!"
 						target="_blank"
 						rel="noopener noreferrer">Aron Walsh</a
 					>'s team at Imperial College London. I received my PhD degree at KAIST, under guidance of
 					Prof.
-					<a
-						href="https://molsim.kaist.ac.kr/"
-						class="border-b border-border-link text-inherit transition-colors hover:border-transparent hover:text-accent!"
-						target="_blank"
-						rel="noopener noreferrer">Jihan Kim</a
+					<a href="https://molsim.kaist.ac.kr/" target="_blank" rel="noopener noreferrer"
+						>Jihan Kim</a
 					>. During my PhD, I have the privilege of working with Prof.
-					<a
-						href="https://www.epfl.ch/labs/lsmo/smit/"
-						class="border-b border-border-link text-inherit transition-colors hover:border-transparent hover:text-accent!"
-						target="_blank"
-						rel="noopener noreferrer">Berend Smit</a
+					<a href="https://www.epfl.ch/labs/lsmo/smit/" target="_blank" rel="noopener noreferrer"
+						>Berend Smit</a
 					> at EPFL as a visiting researcher.
 				</p>
-				<p class="mb-9 leading-7 text-body">
+				<p>
 					I have strong interests in developing computational tools integrating AI for materials
 					design, including structure-property relationship, inverse design, and high-throughput
 					screening.
 				</p>
-				<p class="leading-7 text-body">
+				<p>
 					Feel free to explore my <a
 						href="https://github.com/hspark1212"
-						class="border-b border-border-link text-inherit transition-colors hover:border-transparent hover:text-accent!"
 						target="_blank"
 						rel="noopener noreferrer">Github profile</a
 					>!
@@ -102,9 +96,11 @@
 		<section id="highlights" class="border-t-[6px] border-border-section">
 			<div class="container mx-auto px-6 pt-24 pb-16">
 				<header class="mb-8">
-					<h3 class="text-3xl leading-relaxed font-bold text-heading">Latest Highlights</h3>
+					<h2 class="text-3xl leading-relaxed font-bold text-heading">Latest Highlights</h2>
 				</header>
-				<p class="text-body">Coming in Phase 5...</p>
+				{#each highlights as highlight (highlight.date + highlight.content.slice(0, 20))}
+					<HighlightItem {highlight} />
+				{/each}
 			</div>
 		</section>
 
