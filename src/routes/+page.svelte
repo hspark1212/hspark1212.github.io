@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import MobileHeader from '$lib/components/MobileHeader.svelte';
 	import HighlightItem from '$lib/components/HighlightItem.svelte';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import PublicationList from '$lib/components/PublicationList.svelte';
@@ -16,6 +17,7 @@
 	const materialDesign = researchProjects.filter((p) => p.category === 'material-design');
 
 	let activeSection = $state('one');
+	let mobileMenuOpen = $state(false);
 
 	onMount(() => {
 		const sections = document.querySelectorAll('section[id]');
@@ -53,11 +55,14 @@
 	/>
 </svelte:head>
 
+<!-- Mobile Header (hamburger menu) -->
+<MobileHeader onMenuClick={() => (mobileMenuOpen = true)} />
+
 <!-- Sidebar (fixed right) -->
-<Sidebar {activeSection} />
+<Sidebar {activeSection} isOpen={mobileMenuOpen} onClose={() => (mobileMenuOpen = false)} />
 
 <!-- Main Wrapper -->
-<div id="wrapper" class="bg-white pr-0 md:pr-92">
+<div id="wrapper" class="bg-white pt-16 pr-0 md:pt-0 md:pr-92">
 	<!-- Main Content -->
 	<div id="main">
 		<!-- Introduction Section -->

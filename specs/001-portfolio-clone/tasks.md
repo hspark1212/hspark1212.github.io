@@ -159,13 +159,13 @@
 
 ### Implementation for User Story 7
 
-- [ ] T041 [P] [US7] Create MobileHeader component in src/lib/components/MobileHeader.svelte
-- [ ] T042 [US7] Add mobile sidebar state ($state) to src/routes/+page.svelte
-- [ ] T043 [US7] Implement sidebar slide animation with Tailwind transitions
-- [ ] T044 [US7] Add overlay to close sidebar on mobile
-- [ ] T045 [US7] Hide sidebar on desktop (>1024px), show MobileHeader on mobile
-- [ ] T046 [US7] Make all sections responsive with Tailwind breakpoints
-- [ ] T047 [US7] Run npm run lint && npm run check && npm run build
+- [X] T041 [P] [US7] Create MobileHeader component in src/lib/components/MobileHeader.svelte
+- [X] T042 [US7] Add mobile sidebar state ($state) to src/routes/+page.svelte
+- [X] T043 [US7] Implement sidebar slide animation with Tailwind transitions
+- [X] T044 [US7] Add overlay to close sidebar on mobile
+- [X] T045 [US7] Hide sidebar on desktop (>1024px), show MobileHeader on mobile
+- [X] T046 [US7] Make all sections responsive with Tailwind breakpoints
+- [X] T047 [US7] Run npm run lint && npm run check && npm run build
 
 **Checkpoint**: Site works correctly on mobile with hamburger menu
 

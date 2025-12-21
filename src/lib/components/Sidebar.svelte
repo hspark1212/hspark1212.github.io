@@ -3,14 +3,29 @@
 
 	interface Props {
 		activeSection?: string;
+		isOpen?: boolean;
+		onClose?: () => void;
 	}
 
-	let { activeSection = 'one' }: Props = $props();
+	let { activeSection = 'one', isOpen = false, onClose }: Props = $props();
 </script>
 
+<!-- Overlay (mobile only) -->
+{#if isOpen}
+	<button
+		type="button"
+		class="fixed inset-0 z-40 bg-black/50 md:hidden"
+		onclick={onClose}
+		aria-label="Close menu"
+	></button>
+{/if}
+
+<!-- Sidebar: hidden on mobile, visible on desktop OR when isOpen -->
 <section
 	id="header"
-	class="fixed top-0 right-0 hidden h-full w-92 flex-col justify-between overflow-y-auto bg-accent text-center text-[#d2f2e9] md:flex"
+	class="fixed top-0 right-0 z-50 flex h-full w-72 flex-col justify-between overflow-y-auto bg-accent text-center text-[#d2f2e9] transition-transform duration-300 md:w-92 md:translate-x-0 {isOpen
+		? 'translate-x-0'
+		: 'translate-x-full md:translate-x-0'}"
 >
 	<!-- Profile Header -->
 	<header class="shrink-0 p-12">
@@ -35,6 +50,7 @@
 						class={`block border-0 py-3 no-underline transition-none ${
 							activeSection === item.targetId ? 'bg-white text-accent!' : 'text-white!'
 						}`}
+						onclick={onClose}
 					>
 						{item.label}
 					</a>
