@@ -142,10 +142,10 @@
 
 ### Implementation for User Story 6
 
-- [ ] T037 [P] [US6] Create ContactForm component in src/lib/components/ContactForm.svelte
-- [ ] T038 [US6] Add contact section to src/routes/+page.svelte with email and form
-- [ ] T039 [US6] Style form per original: input fields, textarea, submit button
-- [ ] T040 [US6] Run npm run lint && npm run check && npm run build
+- [X] T037 [P] [US6] Create ContactForm component in src/lib/components/ContactForm.svelte
+- [X] T038 [US6] Add contact section to src/routes/+page.svelte with email and form
+- [X] T039 [US6] Style form per original: input fields, textarea, submit button
+- [X] T040 [US6] Run npm run lint && npm run check && npm run build
 
 **Checkpoint**: Contact section displays email and functional form
 

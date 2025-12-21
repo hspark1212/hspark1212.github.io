@@ -4,7 +4,7 @@ export const profile: Profile = {
 	name: 'Hyunsoo Park',
 	title: 'Postdoctoral Researcher in Imperial College London',
 	avatar: '/images/photo.jpg',
-	email: 'hpark@ic.ac.uk'
+	email: 'phs68660888@gmail.com'
 };
 
 export const socialLinks: SocialLink[] = [

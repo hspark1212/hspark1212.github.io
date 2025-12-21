@@ -4,6 +4,7 @@
 	import HighlightItem from '$lib/components/HighlightItem.svelte';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import PublicationList from '$lib/components/PublicationList.svelte';
+	import ContactForm from '$lib/components/ContactForm.svelte';
 	import { profile } from '$lib/data/profile';
 	import { highlights } from '$lib/data/highlights';
 	import { researchProjects, molecularSimulationDescription } from '$lib/data/research';
@@ -162,20 +163,8 @@
 			<div class="container mx-auto pt-24 pb-16">
 				<h3>Contact Me</h3>
 				<p>Please email me at <a href="mailto:{profile.email}">{profile.email}</a></p>
+				<ContactForm />
 			</div>
 		</section>
 	</div>
-
-	<!-- Footer -->
-	<section id="footer" class="border-t-[6px] border-border-section">
-		<div class="container mx-auto py-12 text-center">
-			<ul class="copyright flex list-none flex-wrap justify-center gap-4 text-sm">
-				<li>&copy; 2024 Hyunsoo Park. All rights reserved.</li>
-				<li>
-					Design: <a href="http://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a
-					>
-				</li>
-			</ul>
-		</div>
-	</section>
 </div>
