@@ -125,10 +125,10 @@
 
 ### Implementation for User Story 5
 
-- [ ] T033 [P] [US5] Create PublicationList component in src/lib/components/PublicationList.svelte
-- [ ] T034 [US5] Add publications section to src/routes/+page.svelte
-- [ ] T035 [US5] Style publications per original: numbered, year headers, bold author name, accent color for first-author
-- [ ] T036 [US5] Run npm run lint && npm run check && npm run build
+- [X] T033 [P] [US5] Create PublicationList component in src/lib/components/PublicationList.svelte
+- [X] T034 [US5] Add publications section to src/routes/+page.svelte
+- [X] T035 [US5] Style publications per original: numbered, year headers, bold author name, accent color for first-author
+- [X] T036 [US5] Run npm run lint && npm run check && npm run build
 
 **Checkpoint**: Publications section displays all 18 papers correctly
 

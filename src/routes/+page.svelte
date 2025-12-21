@@ -3,9 +3,11 @@
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import HighlightItem from '$lib/components/HighlightItem.svelte';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
+	import PublicationList from '$lib/components/PublicationList.svelte';
 	import { profile } from '$lib/data/profile';
 	import { highlights } from '$lib/data/highlights';
 	import { researchProjects, molecularSimulationDescription } from '$lib/data/research';
+	import { publications } from '$lib/data/publications';
 
 	// Group research projects by category
 	const machineLearning = researchProjects.filter((p) => p.category === 'machine-learning');
@@ -152,7 +154,7 @@
 		<section id="publications" class="border-t-[6px] border-border-section">
 			<div class="container mx-auto pt-24 pb-16">
 				<h3>Publications</h3>
-				<p>Coming in Phase 7...</p>
+				<PublicationList {publications} />
 			</div>
 		</section>
 
