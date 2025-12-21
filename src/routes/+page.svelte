@@ -67,11 +67,6 @@
 	<div id="main">
 		<!-- Introduction Section -->
 		<section id="one">
-			<!-- Background Image -->
-			<div class="image main">
-				<img src="/images/background.jpg" alt="Background" class="w-full" />
-			</div>
-
 			<!-- Content Container -->
 			<div class="container mx-auto py-24">
 				<header class="major mb-8">
