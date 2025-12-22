@@ -23,7 +23,7 @@
 <!-- Sidebar: hidden on mobile, visible on desktop OR when isOpen -->
 <section
 	id="header"
-	class="fixed top-0 right-0 z-50 flex h-full w-72 flex-col justify-between overflow-y-auto bg-accent text-center text-[#d2f2e9] transition-transform duration-300 md:w-92 md:translate-x-0 {isOpen
+	class="fixed top-0 right-0 z-50 flex h-full w-72 flex-col justify-between overflow-y-auto bg-accent text-center text-sidebar-text transition-transform duration-300 md:w-92 md:translate-x-0 {isOpen
 		? 'translate-x-0'
 		: 'translate-x-full md:translate-x-0'}"
 >
@@ -37,7 +37,7 @@
 				{profile.name}
 			</a>
 		</h1>
-		<p class="mt-4 text-[#d2f2e9] italic">{profile.title}</p>
+		<p class="mt-4 text-sidebar-text italic">{profile.title}</p>
 	</header>
 
 	<!-- Navigation -->
@@ -66,7 +66,7 @@
 				<li>
 					<a
 						href={link.url}
-						class="flex h-10 w-10 items-center justify-center rounded-full border-0 text-[#b7eadc] transition-colors hover:text-white!"
+						class="flex h-10 w-10 items-center justify-center rounded-full border-0 text-sidebar-icon transition-colors hover:text-white!"
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label={link.label}

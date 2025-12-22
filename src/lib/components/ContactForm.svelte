@@ -117,7 +117,7 @@
 	}
 
 	.btn-primary:hover {
-		background-color: #5ed0b1;
+		background-color: var(--color-button-hover);
 	}
 
 	.btn-secondary {

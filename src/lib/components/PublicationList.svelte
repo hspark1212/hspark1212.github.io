@@ -53,7 +53,7 @@
 	}
 
 	.publication-number-highlight {
-		color: #5c84eb;
+		color: var(--color-highlight);
 	}
 
 	.publication-entry a {

@@ -15,15 +15,19 @@
 	--breakpoint-xl: 1680px;
 
 	/* Colors */
-	--color-accent: #4acaa8;
+	--color-accent: #3b82f6;
 	--color-heading: #777;
 	--color-body: #888;
-	--color-sidebar-bg: #1f2235;
+	--color-sidebar-bg: #1e293b;
+	--color-sidebar-text: #dbeafe;
+	--color-sidebar-icon: #bfdbfe;
+	--color-button-hover: #60a5fa;
+	--color-highlight: #5c84eb;
 
 	/* Borders */
 	--color-border-section: #f4f4f4;
 	--color-border-link: #e4e4e4;
-	--color-border-nav: #5ccfb1;
+	--color-border-nav: #9dc8fc48;
 }
 
 /* ==========================================================================
