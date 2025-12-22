@@ -5,6 +5,16 @@ export const researchProjects: ResearchProject[] = [
 	{
 		category: 'machine-learning',
 		description:
+			'Chemeleon 2: A reinforcement learning framework for crystal structure generation using GRPO',
+		image: '/images/chemeleon2_toc.png',
+		title:
+			'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
+		journal: 'arXiv preprint (2025)',
+		url: 'https://arxiv.org/abs/2511.07158v1'
+	},
+	{
+		category: 'machine-learning',
+		description:
 			'DAC-SIM: a molecular simulation package integrating machine learning force fields in MOFs for CO₂ Direct Air Capture',
 		image: '/images/dac_sim_toc.jpg',
 		title:

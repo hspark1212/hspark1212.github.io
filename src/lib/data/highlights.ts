@@ -2,6 +2,16 @@ import type { Highlight } from './types';
 
 export const highlights: Highlight[] = [
 	{
+		date: 'November 2025',
+		content:
+			'Released <a href="https://arxiv.org/abs/2511.07158v1">"Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning"</a> in arXiv.',
+		image: {
+			src: '/images/chemeleon2_logo.png',
+			alt: 'Chemeleon 2 logo',
+			width: 300
+		}
+	},
+	{
 		date: 'September 2025',
 		content:
 			'🏆 won 1st Place at 2025 LLM Hackathon for Applications in Materials and Chemistry with <a href="https://github.com/hspark1212/synthesis-agent">SKY (synthesis exploration AI agent)</a>. Check it out the demo video <a href="https://www.youtube.com/embed/ffLqLH87yLo">here</a>.'
