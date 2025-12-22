@@ -3,9 +3,38 @@ import type { Publication } from './types';
 export const publications: Publication[] = [
 	// 2025
 	{
+		number: 21,
+		year: 2025,
+		authors: '<b>Hyunsoo P.†</b>, Aron W.†',
+		title: 'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
+		journal: 'arXiv preprint (2025)',
+		url: 'https://arxiv.org/abs/2511.07158v1',
+		isHighlighted: true
+	},
+	{
+		number: 20,
+		year: 2025,
+		authors: 'Masahiro N., <b>Hyunsoo P.</b>, Kinga O. M., Aron W.',
+		title: 'Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals',
+		journal: 'NeurIPS Workshop AI4Science (2025)',
+		url: 'https://arxiv.org/abs/2510.12405',
+		isHighlighted: true
+	},
+	{
+		number: 19,
+		year: 2025,
+		authors:
+			'Yuan C., Tobias K., Christine Z., Matthew C. K., Elizabeth W., Ishan A., <b>Hyunsoo P.</b>, Yunsung L., Jihan K., Daryl C., Aron W., Samuel M. B., Mark A., Aditi S. K.',
+		title:
+			'MLIP Arena: Advancing Fairness and Transparency in Machine Learning Interatomic Potentials via an Open, Accessible Benchmark Platform',
+		journal: 'NeurIPS, spotlight (2025)',
+		url: 'https://arxiv.org/abs/2509.20630',
+		isHighlighted: true
+	},
+	{
 		number: 18,
 		year: 2025,
-		authors: 'Lim, Y.*, <b>Park, H.*</b>, Walsh, A. and Kim, J.',
+		authors: 'Yunsung L.*, <b>Hyunsoo P.*</b>, Aron W. and Jihan K.',
 		title:
 			'Achieving high-throughput screening of CO₂ Direct Air Capture materials with a transferable machine learning force field',
 		journal: 'Matter. 8, 102203 (2025)',
@@ -15,7 +44,7 @@ export const publications: Publication[] = [
 	{
 		number: 17,
 		year: 2025,
-		authors: '<b>Park, H.†</b>, Onwuli, A. and Walsh, A.†',
+		authors: '<b>Hyunsoo P.†</b>, Anthony O. and Aron W.†',
 		title:
 			'Exploration of crystal chemical space using text-guided generative artificial intelligence',
 		journal: 'Nature Communications. 16, 4379 (2025)',
@@ -25,7 +54,7 @@ export const publications: Publication[] = [
 	{
 		number: 16,
 		year: 2025,
-		authors: 'Laudadio, G.*, Lavarda, G.*, <b>Park, H.*</b>, Cranford, S.',
+		authors: 'Gabriele L.*, Giulia L.*, <b>Hyunsoo P.*</b>, Steve C.',
 		title: 'Reflections in search of faculty (and other) positions in Europe',
 		journal: 'Matter. 8, 101962 (2025)',
 		url: 'https://www.cell.com/matter/fulltext/S2590-2385(25)00005-0',
@@ -36,7 +65,7 @@ export const publications: Publication[] = [
 	{
 		number: 15,
 		year: 2024,
-		authors: '<b>Park, H.</b>, Li, Z. and Walsh, A.',
+		authors: '<b>Hyunsoo P.</b>, Zhenzhu L. and Aron W.',
 		title: 'Has generative artificial intelligence solved inverse materials design?',
 		journal: 'Matter. 7, 2355-2367 (2024)',
 		url: 'https://www.cell.com/matter/fulltext/S2590-2385(24)00242-X',
@@ -45,7 +74,7 @@ export const publications: Publication[] = [
 	{
 		number: 14,
 		year: 2024,
-		authors: '<b>Park, H.</b>, Ouwuli, A., Butler, K. and Walsh, A.',
+		authors: '<b>Hyunsoo P.</b>, Anthony O., Keith B. and Aron W.',
 		title: 'Mapping inorganic crystal chemical space',
 		journal: 'Faraday Discussion. 256, 601-613 (2024)',
 		url: 'https://pubs.rsc.org/en/content/articlelanding/2024/fd/d4fd00063c',
@@ -54,7 +83,7 @@ export const publications: Publication[] = [
 	{
 		number: 13,
 		year: 2024,
-		authors: 'Han, S., Kang, Y., <b>Park, H.</b>, Yi, J., Park, G., and Kim, J.',
+		authors: 'Seunghee H., Yeonghun K., <b>Hyunsoo P.</b>, Jeesung Y., Geunyeong P., and Jihan K.',
 		title: 'Multimodal Transformer for Property Prediction in Polymers',
 		journal: 'ACS Applied Materials & Interfaces. 16, 16853-16860 (2024)',
 		url: 'https://pubs.acs.org/doi/full/10.1021/acsami.4c01207',
@@ -63,7 +92,7 @@ export const publications: Publication[] = [
 	{
 		number: 12,
 		year: 2024,
-		authors: '<b>Park, H.*</b>, Majumdar, S.*, Zhang, X., Kim, J., and Smit, B.',
+		authors: '<b>Hyunsoo P.*</b>, Sauradeep M.*, Xiaoqi Z., Jihan K., and Berend S.',
 		title:
 			'Inverse Design of Metal-Organic Frameworks for Direct Air Capture of CO₂ via Deep Reinforcement Learning',
 		journal: 'Digital Discovery. 3, 728-741 (2024)',
@@ -75,7 +104,7 @@ export const publications: Publication[] = [
 	{
 		number: 11,
 		year: 2023,
-		authors: '<b>Park, H.*</b>, Kang, Y.*, and Kim, J.',
+		authors: '<b>Hyunsoo P.*</b>, Yeonghun K.*, and Jihan K.',
 		title:
 			'Enhancing Structure–Property Relationships in Porous Materials through Transfer Learning and Cross-Material Few-Shot Learning',
 		journal: 'ACS Applied Materials & Interfaces. 15, 56375-56385 (2023)',
@@ -85,7 +114,7 @@ export const publications: Publication[] = [
 	{
 		number: 10,
 		year: 2023,
-		authors: 'Kang, Y.*, <b>Park, H.*</b>, Smit, B., and Kim, J.',
+		authors: 'Yeonghun K.*, <b>Hyunsoo P.*</b>, Berend S., and Jihan K.',
 		title:
 			'A Multi-modal Pre-training Transformer for Universal Transfer Learning in Metal-Organic Frameworks',
 		journal: 'Nature Machine Intelligence. 5, 309-318 (2023)',
@@ -98,7 +127,7 @@ export const publications: Publication[] = [
 		number: 9,
 		year: 2022,
 		authors:
-			'Choi, J., Chacon B., <b>Park, H.</b>, Hantanasirisakul, K., Kim, T., Shevchuk, K., Lee, J., Hohyung Kang, Cho, S., Kim, J., Gogotsi, Y., Kim, S., and Jung, H.',
+			'Junghoon C., Benjamin C., <b>Hyunsoo P.</b>, Kanit H., Taewoo K., Kateryna S., Juyun L., Hohyung K., Soo-Yeon C., Jihan K., Yury G., Seon Joon K., and Hee-Tae J.',
 		title: 'N–p-Conductor Transition of Gas Sensing Behaviors in Mo₂CT_x MXene',
 		journal: 'ACS Sensors. 8, 2225-2234 (2022)',
 		url: 'https://pubs.acs.org/doi/full/10.1021/acssensors.2c00658',
@@ -107,7 +136,7 @@ export const publications: Publication[] = [
 	{
 		number: 8,
 		year: 2022,
-		authors: '<b>Park, H.*</b>, Kang, Y.*, Choe, W., and Kim, J.',
+		authors: '<b>Hyunsoo P.*</b>, Yeonghun K.*, Wonyoung C., and Jihan K.',
 		title: 'Mining Insights on Metal-Organic Framework Synthesis from Scientific Literature Texts',
 		journal: 'Journal of Chemical Information and Modeling. 62, 1190-1198 (2022)',
 		url: 'https://pubs.acs.org/doi/10.1021/acs.jcim.1c01297',
@@ -119,7 +148,7 @@ export const publications: Publication[] = [
 		number: 7,
 		year: 2021,
 		authors:
-			'Jung, W., <b>Park, H.</b>, Jang, J., Kim, D., Kim, D., Lim, E., Kim, J., Choi, S., Suk, J., and Kang, Y.',
+			'Woo-Bin J., <b>Hyunsoo P.</b>, Ji-Soo J., Do Youb K., Dong Wook K., Eunsoo L., Ju Ye K., Sungho C., Jungdon S., and Yongku K.',
 		title: 'Polyelemental Nanoparticles as Catalysts for a Li–O₂ Battery',
 		journal: 'ACS Nano. 15, 4235-4244 (2021)',
 		url: 'https://pubs.acs.org/doi/10.1021/acsnano.0c06528',
@@ -128,7 +157,7 @@ export const publications: Publication[] = [
 	{
 		number: 6,
 		year: 2021,
-		authors: '<b>Park, H.</b>, Kwon, O., and Kim, J.',
+		authors: '<b>Hyunsoo P.</b>, Ohmin K., and Jihan K.',
 		title: 'Computational Identification of Connected MOF@COF Materials',
 		journal: 'The Journal of Physical Chemistry C. 125, 5897-5903 (2021)',
 		url: 'https://pubs.acs.org/doi/10.1021/acs.jpcc.0c11551',
@@ -137,7 +166,7 @@ export const publications: Publication[] = [
 	{
 		number: 5,
 		year: 2021,
-		authors: '<b>Park, H.</b>, Lee, S., and Kim, J.',
+		authors: '<b>Hyunsoo P.</b>, Sangwon L., and Jihan K.',
 		title: 'Deep learning-based initial guess for minimum energy path calculations',
 		journal: 'Korean Journal of Chemical Engineering. 38, 406-410 (2021)',
 		url: 'https://link.springer.com/article/10.1007/s11814-020-0704-1',
@@ -148,7 +177,7 @@ export const publications: Publication[] = [
 	{
 		number: 4,
 		year: 2020,
-		authors: 'Cho, H., Hyeon, S., <b>Park, H.</b>, Kim, J., and Cho, E.S.',
+		authors: 'Hyun C., Seokwon H., <b>Hyunsoo P.</b>, Jihan K., and Eun Seon C.',
 		title:
 			'Ultrathin Magnesium Nanosheet for Improved Hydrogen Storage with Fishbone Shaped One-Dimensional Carbon Matrix',
 		journal: 'ACS Applied Energy Materials. 3, 8143-8149 (2020)',
@@ -159,7 +188,7 @@ export const publications: Publication[] = [
 		number: 3,
 		year: 2020,
 		authors:
-			'Wu, M.*, Kim, J.*, <b>Park, H.*</b>, Kim, D., Cho, K., Lim, E., Chae, O., Choi, S., Kang, Y., and Kim, J.',
+			'Mihye W.*, Ju Ye K.*, <b>Hyunsoo P.*</b>, Do Youb K., Kyeong Min C., Eunsoo L., Oh B C., Sungho C., Yongku K., Jihan K., and Hee-Tae J.',
 		title:
 			'Understanding Reaction Pathways in High Dielectric Electrolytes Using β-Mo₂C as a Catalyst for Li–CO₂ Batteries',
 		journal: 'ACS Applied Materials & Interfaces. 12, 32633-32641 (2020)',
@@ -172,7 +201,7 @@ export const publications: Publication[] = [
 		number: 2,
 		year: 2019,
 		authors:
-			'Wu, M., <b>Park, H.</b>, Cho, K., Kim, J., Kim, S., Choi, S., Kang, Y., Kim, J., and Jung, H.',
+			'Mihye W., <b>Hyunsoo P.</b>, Kyeong Min C., Ju Ye K., Seon Joon K., Sungho C., Yongku K., Jihan K., and Hee-Tae J.',
 		title:
 			'Formation of toroidal Li₂O₂ in non-aqueous Li–O₂ batteries with Mo₂CT_x MXene/CNT composite',
 		journal: 'RSC Advances. 9, 41120-41125 (2019)',
@@ -182,7 +211,7 @@ export const publications: Publication[] = [
 	{
 		number: 1,
 		year: 2019,
-		authors: 'Kwon, O., Kim, J., Park, S., Lee, J., Ha, J., <b>Park, H.</b>, Moon, H., and Kim, J.',
+		authors: 'Ohmin K., Jin Yeong K., Sungbin P., Jae Hwa L., Junsu H., <b>Hyunsoo P.</b>, Hoi Ri M., and Jihan K.',
 		title: 'Computer-aided discovery of connected metal-organic frameworks',
 		journal: 'Nature Communications. 10, 1-8 (2019)',
 		url: 'https://www.nature.com/articles/s41467-019-11629-4',
