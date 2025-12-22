@@ -5,7 +5,7 @@ export const publications: Publication[] = [
 	{
 		number: 21,
 		year: 2025,
-		authors: '<b>Hyunsoo P.†</b>, Aron W.†',
+		authors: '<b>Hyunsoo P.<sup>†</sup></b>, Aron W.<sup>†</sup>',
 		title: 'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
 		journal: 'arXiv preprint (2025)',
 		url: 'https://arxiv.org/abs/2511.07158v1',
@@ -18,7 +18,7 @@ export const publications: Publication[] = [
 		title: 'Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals',
 		journal: 'NeurIPS Workshop AI4Science (2025)',
 		url: 'https://arxiv.org/abs/2510.12405',
-		isHighlighted: true
+		isHighlighted: false
 	},
 	{
 		number: 19,
@@ -29,7 +29,7 @@ export const publications: Publication[] = [
 			'MLIP Arena: Advancing Fairness and Transparency in Machine Learning Interatomic Potentials via an Open, Accessible Benchmark Platform',
 		journal: 'NeurIPS, spotlight (2025)',
 		url: 'https://arxiv.org/abs/2509.20630',
-		isHighlighted: true
+		isHighlighted: false
 	},
 	{
 		number: 18,
@@ -44,7 +44,7 @@ export const publications: Publication[] = [
 	{
 		number: 17,
 		year: 2025,
-		authors: '<b>Hyunsoo P.†</b>, Anthony O. and Aron W.†',
+		authors: '<b>Hyunsoo P.<sup>†</sup></b>, Anthony O. and Aron W.<sup>†</sup>',
 		title:
 			'Exploration of crystal chemical space using text-guided generative artificial intelligence',
 		journal: 'Nature Communications. 16, 4379 (2025)',
