@@ -1,34 +1,43 @@
-# Quickstart: Bio Timeline Section
+# Quickstart: Bio Timeline Enhancement - Highlights Support
 
 **Feature**: 003-bio-timeline
 **Date**: 2025-12-23
+**Updated**: 2025-12-23 (Added highlights with image support)
 
-## Prerequisites
+## Overview
 
-- Node.js 18+
-- npm
-- Git (on branch `003-bio-timeline`)
+This enhancement adds support for multiple highlights/achievements per bio timeline entry, with optional images.
 
-## Quick Implementation Steps
+## Implementation Steps
 
-### 1. Add BioEntry Type
+### 1. Update Type Definition
 
 **File**: `src/lib/data/types.ts`
 
-Add to existing types:
+Add BioHighlight interface and update BioEntry:
+
 ```typescript
+export interface BioHighlight {
+  name: string;
+  url?: string;
+  image?: string;
+}
+
 export interface BioEntry {
   year: string;
   institution: string;
   logo: string;
   role: string;
   description: string;
+  highlights?: BioHighlight[];
 }
 ```
 
-### 2. Create Bio Data
+### 2. Update Bio Data
 
-**File**: `src/lib/data/bio.ts` (new file)
+**File**: `src/lib/data/bio.ts`
+
+Add highlights to relevant entries:
 
 ```typescript
 import type { BioEntry } from './types';
@@ -38,22 +47,31 @@ export const bioEntries: BioEntry[] = [
     year: 'current',
     institution: 'Imperial',
     logo: '/images/imperial_logo.png',
-    role: 'postdoc',
-    description: "Research associate in Prof. Aron Walsh's team at Imperial College London"
+    role: 'Postdoc',
+    description: "Research associate in Prof. Aron Walsh's team at Imperial College London",
+    highlights: [
+      { name: 'CHAMELEON', url: 'https://github.com/...', image: '/images/chameleon.png' }
+    ]
   },
   {
     year: '2023',
     institution: 'KAIST',
     logo: '/images/kaist_logo.png',
     role: 'PhD',
-    description: 'PhD in Chemical and Biomolecular Engineering under Prof. Jihan Kim'
+    description: 'PhD in Chemical and Biomolecular Engineering under Prof. Jihan Kim',
+    highlights: [
+      { name: 'MOFTransformer', url: 'https://github.com/hspark1212/MOFTransformer', image: '/images/moftransformer.png' }
+    ]
   },
   {
     year: '2022',
     institution: 'EPFL',
     logo: '/images/epfl_logo.png',
-    role: 'visiting researcher',
-    description: 'Visiting researcher with Prof. Berend Smit'
+    role: 'Visiting Researcher',
+    description: 'Visiting researcher with Prof. Berend Smit',
+    highlights: [
+      { name: 'MOFReinforce' }  // No image
+    ]
   },
   {
     year: '2020',
@@ -61,42 +79,49 @@ export const bioEntries: BioEntry[] = [
     logo: '/images/kaist_logo.png',
     role: 'MS',
     description: "Master's in Chemical and Biomolecular Engineering"
+    // No highlights
   }
 ];
 ```
 
-### 3. Add Navigation Item
+### 3. Update BioTimeline Component
 
-**File**: `src/lib/data/profile.ts`
+**File**: `src/lib/components/BioTimeline.svelte`
 
-Update `navItems` array:
-```typescript
-export const navItems: NavItem[] = [
-  { label: 'Introduction', targetId: 'one' },
-  { label: 'Bio', targetId: 'bio' },  // NEW
-  { label: 'Latest Highlights', targetId: 'highlights' },
-  // ... rest unchanged
-];
+Add highlights rendering below description:
+
+```svelte
+<!-- Description -->
+<p class="mt-2 text-sm leading-relaxed text-body md:text-base">{entry.description}</p>
+
+<!-- Highlights (if any) -->
+{#if entry.highlights?.length}
+  <div class="mt-2 flex flex-wrap gap-2">
+    {#each entry.highlights as highlight}
+      {#if highlight.url}
+        <a
+          href={highlight.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1 text-xs text-accent hover:underline md:text-sm"
+        >
+          {#if highlight.image}
+            <img src={highlight.image} alt={highlight.name} class="h-4 w-4 object-contain" />
+          {/if}
+          {highlight.name}
+        </a>
+      {:else}
+        <span class="flex items-center gap-1 text-xs text-body md:text-sm">
+          {#if highlight.image}
+            <img src={highlight.image} alt={highlight.name} class="h-4 w-4 object-contain" />
+          {/if}
+          {highlight.name}
+        </span>
+      {/if}
+    {/each}
+  </div>
+{/if}
 ```
-
-### 4. Create BioTimeline Component
-
-**File**: `src/lib/components/BioTimeline.svelte` (new file)
-
-Component should:
-- Accept `entries: BioEntry[]` prop
-- Render vertical timeline with connecting line
-- Display year, institution logo (from `logo` path), role, and description for each entry
-- Use Tailwind for all styling
-- Be responsive (mobile-friendly)
-
-### 5. Integrate in Page
-
-**File**: `src/routes/+page.svelte`
-
-- Import `BioTimeline` component and `bioEntries` data
-- Add Bio section between Introduction (`id="one"`) and Highlights (`id="highlights"`)
-- Use section structure matching other sections (border-t-[6px], container, etc.)
 
 ## Verification
 
@@ -118,21 +143,14 @@ npm run dev
 
 | File | Action |
 |------|--------|
-| `src/lib/data/types.ts` | MODIFY - add BioEntry interface |
-| `src/lib/data/bio.ts` | CREATE - bio entries data |
-| `src/lib/data/profile.ts` | MODIFY - add nav item |
-| `src/lib/components/BioTimeline.svelte` | CREATE - timeline component |
-| `src/routes/+page.svelte` | MODIFY - add Bio section |
+| `src/lib/data/types.ts` | MODIFY - add BioHighlight, update BioEntry |
+| `src/lib/data/bio.ts` | MODIFY - add highlights data |
+| `src/lib/components/BioTimeline.svelte` | MODIFY - render highlights |
 
-## Design Reference
+## Visual Design
 
-See wireframe at `new_bio_component.jpg` for visual layout:
-- Vertical line connecting entries
-- Year labels on left
-- Institution logo in bordered box (logos available at `/static/images/`)
-- Role and description to the right
-
-**Available Logos**:
-- `/images/imperial_logo.png`
-- `/images/kaist_logo.png`
-- `/images/epfl_logo.png`
+Highlights appear below the description:
+- Small inline layout with optional images
+- Links styled with accent color
+- Non-linked highlights shown as plain text
+- Images displayed as small thumbnails (16x16px) if provided

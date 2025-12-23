@@ -4,6 +4,7 @@ Auto-generated from all feature plans. Last updated: 2025-12-18
 
 ## Active Technologies
 - N/A (static data in TypeScript files) (003-bio-timeline)
+- TypeScript (strict mode), Svelte 5 + SvelteKit v2.x + Tailwind CSS v4.x (003-bio-timeline)
 
 - TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x, Svelte 5.x (001-portfolio-clone)
 
@@ -24,6 +25,7 @@ npm test && npm run lint
 TypeScript (strict mode) with Svelte 5: Follow standard conventions
 
 ## Recent Changes
+- 003-bio-timeline: Added TypeScript (strict mode), Svelte 5 + SvelteKit v2.x + Tailwind CSS v4.x
 - 003-bio-timeline: Added TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x
 
 - 001-portfolio-clone: Added TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x, Svelte 5.x
@@ -62,4 +64,10 @@ TypeScript (strict mode) with Svelte 5: Follow standard conventions
   - `--color-border-link`: Link underlines (#e4e4e4)
   - `--color-border-nav`: Navigation borders (#5ccfb1)
 - Example usage: `border-border-section` instead of `border-[#f4f4f4]`
+
+## Link Guidelines
+
+- Keep links simple: `<a href={url}>` is sufficient for most cases
+- **DO NOT** add `target="_blank"` and `rel="noopener noreferrer"` unless explicitly needed
+- Use `border-b-0!` to remove default link underlines from `#main a` styling
 <!-- MANUAL ADDITIONS END -->

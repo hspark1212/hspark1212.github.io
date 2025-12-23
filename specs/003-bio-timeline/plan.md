@@ -1,23 +1,23 @@
-# Implementation Plan: Bio Timeline Section
+# Implementation Plan: Bio Timeline Enhancement - Highlights per Entry
 
-**Branch**: `003-bio-timeline` | **Date**: 2025-12-23 | **Spec**: [spec.md](./spec.md)
-**Input**: Feature specification from `/specs/003-bio-timeline/spec.md`
+**Branch**: `003-bio-timeline` | **Date**: 2025-12-23 | **Spec**: `/specs/003-bio-timeline/spec.md`
+**Input**: User request: "bio에서 description이 하나가 아니라 project나 news를 추가하는 식으로 만들고 싶어. 예를들어 epfl에서는 MOFreinforce. KAIST phd에서는 MOFTransformer, 이런식으로!"
 
 ## Summary
 
-Add a Bio section with a vertical timeline displaying academic history (Imperial postdoc, KAIST PhD, EPFL visiting researcher, KAIST MS) positioned between the Introduction and Latest Highlights sections. The implementation follows existing patterns: a new Svelte component for timeline display, a data file for bio entries, and navigation integration via the existing sidebar.
+Enhance the existing BioEntry data model to support multiple highlights/achievements per timeline entry. Each bio entry can have an optional list of highlights (name + optional URL + optional image) alongside the base description.
 
 ## Technical Context
 
-**Language/Version**: TypeScript (strict mode) with Svelte 5
-**Primary Dependencies**: SvelteKit v2.x, Tailwind CSS v4.x
+**Language/Version**: TypeScript (strict mode), Svelte 5 + SvelteKit v2.x
+**Primary Dependencies**: Tailwind CSS v4.x
 **Storage**: N/A (static data in TypeScript files)
-**Testing**: Playwright (E2E only, per constitution)
-**Target Platform**: Web (SSR-enabled SvelteKit)
-**Project Type**: Web application (single-page portfolio)
-**Performance Goals**: Lighthouse Performance 90+ (mobile), per constitution
-**Constraints**: Mobile-first responsive design, 320px-1920px viewport support
-**Scale/Scope**: Single section with 4 timeline entries
+**Testing**: Playwright (E2E only, not requested for this enhancement)
+**Target Platform**: Web (320px - 1920px viewport)
+**Project Type**: Single-page web application (SvelteKit)
+**Performance Goals**: Lighthouse Performance 90+ (mobile)
+**Constraints**: Mobile-first responsive design, no external API calls
+**Scale/Scope**: 4 bio entries, max ~3 highlights per entry
 
 ## Constitution Check
 
@@ -25,14 +25,12 @@ Add a Bio section with a vertical timeline displaying academic history (Imperial
 
 | Principle | Status | Notes |
 |-----------|--------|-------|
-| I. Minimal Code Style | PASS | Single component, single data file, no abstractions |
-| II. Clean & Readable Code | PASS | Follow existing naming conventions (BioTimeline.svelte) |
-| III. Component-First Architecture | PASS | Self-contained BioTimeline component |
-| IV. Modern Svelte 5 Patterns | PASS | Use $props() for component props |
-| V. Tailwind-First Styling | PASS | All styling via Tailwind utilities |
-| VI. Performance & Accessibility | PASS | Semantic HTML, keyboard accessible |
-
-**Gate Result**: PASS - No violations. Proceed to Phase 0.
+| I. Minimal Code Style | ✓ PASS | Adding only necessary fields (highlights array) |
+| II. Clean & Readable Code | ✓ PASS | Clear naming: `highlights` with `name`, optional `url` and `image` |
+| III. Component-First | ✓ PASS | Enhancing existing BioTimeline component |
+| IV. Modern Svelte 5 | ✓ PASS | Using existing `$props()` pattern |
+| V. Tailwind-First Styling | ✓ PASS | All styling via Tailwind utilities |
+| VI. Performance & Accessibility | ✓ PASS | Semantic HTML, accessible links, alt text for images |
 
 ## Project Structure
 
@@ -41,10 +39,10 @@ Add a Bio section with a vertical timeline displaying academic history (Imperial
 ```text
 specs/003-bio-timeline/
 ├── plan.md              # This file
-├── research.md          # Phase 0 output
-├── data-model.md        # Phase 1 output
-├── quickstart.md        # Phase 1 output
-└── tasks.md             # Phase 2 output (created by /speckit.tasks)
+├── spec.md              # Original feature spec
+├── data-model.md        # Updated data model (Phase 1)
+├── quickstart.md        # Integration guide (Phase 1)
+└── tasks.md             # Task list (to be updated)
 ```
 
 ### Source Code (repository root)
@@ -53,21 +51,66 @@ specs/003-bio-timeline/
 src/
 ├── lib/
 │   ├── components/
-│   │   └── BioTimeline.svelte    # NEW: Timeline component
+│   │   └── BioTimeline.svelte    # Update to render highlights
 │   └── data/
-│       ├── bio.ts                # NEW: Bio timeline data
-│       ├── types.ts              # MODIFY: Add BioEntry type
-│       └── profile.ts            # MODIFY: Add Bio to navItems
+│       ├── types.ts              # Add BioHighlight, extend BioEntry
+│       └── bio.ts                # Add highlights data
 └── routes/
-    └── +page.svelte              # MODIFY: Add Bio section
+    └── +page.svelte              # No changes needed
 ```
 
-**Structure Decision**: Follows existing single-page portfolio structure. New component in `components/`, new data file in `data/`, modifications to existing files for integration.
+**Structure Decision**: Single-page application, modifying existing files only.
+
+## Implementation Approach
+
+### Data Model: Add `highlights` array to BioEntry
+
+```typescript
+export interface BioHighlight {
+  name: string;
+  url?: string;
+  image?: string;
+}
+
+export interface BioEntry {
+  year: string;
+  institution: string;
+  logo: string;
+  role: string;
+  description: string;
+  highlights?: BioHighlight[];
+}
+```
+
+**Why**:
+- Minimal change to existing structure
+- Optional field - backward compatible
+- Clear separation: `description` is about the role, `highlights` are achievements
+- `image` field allows visual representation of highlights
+
+## Data Example
+
+```typescript
+{
+  year: '2023',
+  institution: 'KAIST',
+  logo: '/images/kaist_logo.png',
+  role: 'PhD',
+  description: 'PhD in Chemical and Biomolecular Engineering under Prof. Jihan Kim',
+  highlights: [
+    { name: 'MOFTransformer', url: 'https://github.com/...', image: '/images/moftransformer.png' }
+  ]
+}
+```
+
+## UI Design
+
+Highlights will be displayed below the description:
+- Small inline layout with optional thumbnail images
+- Links (if URL provided) styled with accent color
+- Non-linked highlights shown as plain text
+- Images displayed as small thumbnails if provided
 
 ## Complexity Tracking
 
-> No violations to justify. Implementation follows minimal patterns established in codebase.
-
-| Violation | Why Needed | Simpler Alternative Rejected Because |
-|-----------|------------|-------------------------------------|
-| N/A | N/A | N/A |
+No constitution violations. Enhancement is minimal and follows all established patterns.

@@ -28,7 +28,7 @@
 				{/if}
 			</div>
 
-			<!-- Content: Logo + Role + Description -->
+			<!-- Content: Logo + Role + Description + Highlights -->
 			<div class="flex-1">
 				<!-- Logo and Role row -->
 				<div class="flex items-center gap-3 md:gap-4">
@@ -43,14 +43,35 @@
 						/>
 					</div>
 					<!-- Role - same height as logo for alignment -->
-					<h4
-						class="m-0 flex h-10 items-center text-base font-semibold text-heading md:h-12 md:text-lg"
-					>
+					<span class="flex h-10 items-center text-sm font-semibold text-heading md:h-12 md:text-base">
 						{entry.role}
-					</h4>
+					</span>
 				</div>
 				<!-- Description -->
 				<p class="mt-2 text-sm leading-relaxed text-body md:text-base">{entry.description}</p>
+				<!-- Highlights -->
+				{#if entry.highlights?.length}
+					<div class="mt-3 flex flex-wrap gap-4">
+						{#each entry.highlights as highlight}
+							<div class="flex flex-col gap-2">
+								<span class="text-xs text-body md:text-sm">{highlight.description}</span>
+								{#if highlight.image}
+									{#if highlight.url}
+										<a href={highlight.url} class="border-b-0!">
+											<img
+												src={highlight.image}
+												alt={highlight.description}
+												class="h-auto w-50 transition-opacity hover:opacity-80"
+											/>
+										</a>
+									{:else}
+										<img src={highlight.image} alt={highlight.description} class="h-auto w-50" />
+									{/if}
+								{/if}
+							</div>
+						{/each}
+					</div>
+				{/if}
 			</div>
 		</article>
 	{/each}

@@ -1,4 +1,4 @@
-# Tasks: Bio Timeline Section
+# Tasks: Bio Timeline Section - Highlights Enhancement
 
 **Input**: Design documents from `/specs/003-bio-timeline/`
 **Prerequisites**: plan.md, spec.md, data-model.md, quickstart.md
@@ -10,7 +10,7 @@
 ## Format: `[ID] [P?] [Story] Description`
 
 - **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
+- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3, US4)
 - Include exact file paths in descriptions
 
 ## Path Conventions
@@ -22,7 +22,7 @@
 
 ---
 
-## Phase 1: Foundational (Data Layer)
+## Phase 1: Foundational (Data Layer) ✅ COMPLETE
 
 **Purpose**: Create the data types and data file that all user stories depend on
 
@@ -35,46 +35,66 @@
 
 ---
 
-## Phase 2: User Story 1 - View Academic History Timeline (Priority: P1) 🎯 MVP
+## Phase 2: User Story 1 - View Academic History Timeline (Priority: P1) ✅ COMPLETE
 
-**Goal**: Display a vertical timeline showing academic positions (Imperial postdoc, KAIST PhD, EPFL visiting researcher, KAIST MS) between Introduction and Highlights sections
+**Goal**: Display a vertical timeline showing academic positions (Imperial postdoc, KAIST PhD, EPFL visiting researcher, KAIST MS) in Introduction section
 
-**Independent Test**: Load homepage → Bio section visible between Introduction and Highlights → All 4 entries displayed in reverse chronological order with logos, roles, and descriptions
+**Independent Test**: Load homepage → Bio timeline visible in Introduction section → All 4 entries displayed in reverse chronological order with logos, roles, and descriptions
 
 ### Implementation for User Story 1
 
-- [x] T003 [US1] Create BioTimeline.svelte component in src/lib/components/BioTimeline.svelte with:
-  - Props: entries (BioEntry[])
-  - Vertical timeline with connecting line
-  - Each entry shows: year, institution logo, role, description
-  - Mobile-first responsive design using Tailwind
-  - Semantic HTML (section, article, time elements)
-- [x] T004 [US1] Add Bio section to src/routes/+page.svelte:
-  - Import BioTimeline component and bioEntries data
-  - Add section with id="bio" between Introduction (id="one") and Highlights (id="highlights")
-  - Use consistent section styling (border-t-[6px] border-border-section, container, padding)
+- [x] T003 [US1] Create BioTimeline.svelte component in src/lib/components/BioTimeline.svelte
+- [x] T004 [US1] Integrate BioTimeline into Introduction section in src/routes/+page.svelte
 
-**Checkpoint**: Bio section displays correctly with timeline - MVP complete
+**Checkpoint**: Bio timeline displays correctly in Introduction section - MVP complete
 
 ---
 
-## Phase 3: User Story 2 - Navigate to Bio Section (Priority: P2)
+## Phase 3: User Story 4 - Display Highlights per Entry (Priority: P1) 🎯 NEW
 
-**Goal**: Enable navigation to Bio section via sidebar and automatic highlight when scrolling
+**Goal**: Each bio entry can display multiple highlights/achievements (e.g., MOFTransformer, MOFReinforce) with optional links and images
 
-**Independent Test**: Click Bio link in sidebar → Page scrolls to Bio section → Bio link highlights when section is in viewport
+**Independent Test**: Load homepage → Bio entries with highlights show project names below description → Highlights with URLs are clickable links → Highlights with images show thumbnails
 
-### Implementation for User Story 2
+### Data Layer for User Story 4
 
-- [ ] T005 [US2] Add Bio nav item to src/lib/data/profile.ts:
-  - Insert { label: 'Bio', targetId: 'bio' } after Introduction in navItems array
-  - Navigation highlighting handled automatically by existing IntersectionObserver in +page.svelte
+- [x] T010 [US4] Add BioHighlight interface to src/lib/data/types.ts:
+  - description: string (required)
+  - url?: string (optional)
+  - image?: string (optional)
+- [x] T011 [US4] Update BioEntry interface in src/lib/data/types.ts to include highlights?: BioHighlight[]
 
-**Checkpoint**: Navigation to Bio section works - sidebar integration complete
+### Data Update for User Story 4
+
+- [x] T012 [US4] Add highlights data to bio entries in src/lib/data/bio.ts:
+  - Imperial/Postdoc: chemeleon (with image)
+  - KAIST/PhD: MOFTransformer (with image, with URL)
+  - EPFL/Visiting Researcher: MOFReinforce (with image, with URL)
+  - KAIST/MS: no highlights
+
+### Component Update for User Story 4
+
+- [x] T013 [US4] Update BioTimeline.svelte in src/lib/components/BioTimeline.svelte to render highlights:
+  - Display highlights below description
+  - Render as links if URL provided
+  - Show thumbnail image if image provided
+  - Use Tailwind for styling (text-xs, text-accent for links)
+
+**Checkpoint**: Highlights display correctly below each bio entry description
 
 ---
 
-## Phase 4: User Story 3 - Responsive Timeline Display (Priority: P2)
+## Phase 4: User Story 2 - Navigate to Bio Section (Priority: P2) - SKIPPED
+
+**Note**: Bio is now merged into Introduction section, so separate navigation is not needed. The Introduction nav item covers the bio timeline.
+
+~~- [ ] T005 [US2] Add Bio nav item to src/lib/data/profile.ts~~
+
+**Status**: SKIPPED - Not applicable since Bio is merged into Introduction
+
+---
+
+## Phase 5: User Story 3 - Responsive Timeline Display (Priority: P2)
 
 **Goal**: Ensure timeline displays correctly on mobile devices (320px-1920px viewport)
 
@@ -82,22 +102,23 @@
 
 ### Implementation for User Story 3
 
-- [ ] T006 [US3] Verify responsive styling in src/lib/components/BioTimeline.svelte:
+- [ ] T014 [US3] Verify responsive styling in src/lib/components/BioTimeline.svelte:
   - Mobile: Compact layout, readable on 320px width
   - Desktop (md:): Full horizontal layout matching wireframe
   - Test breakpoints at 320px, 768px, 1024px, 1920px
+  - Include highlights responsive behavior
 
 **Checkpoint**: Timeline works across all viewport sizes
 
 ---
 
-## Phase 5: Polish & Verification
+## Phase 6: Polish & Verification
 
 **Purpose**: Quality checks and build verification
 
-- [ ] T007 [P] Run type check: npm run check
-- [ ] T008 [P] Run lint: npm run lint
-- [ ] T009 Run build: npm run build
+- [ ] T015 [P] Run type check: npm run check
+- [ ] T016 [P] Run lint: npm run lint
+- [ ] T017 Run build: npm run build
 
 ---
 
@@ -105,38 +126,41 @@
 
 ### Phase Dependencies
 
-- **Foundational (Phase 1)**: No dependencies - can start immediately
-- **User Story 1 (Phase 2)**: Depends on Phase 1 completion
-- **User Story 2 (Phase 3)**: Depends on Phase 2 (needs section to exist)
-- **User Story 3 (Phase 4)**: Depends on Phase 2 (needs component to exist)
-- **Polish (Phase 5)**: Depends on all user stories being complete
+- **Foundational (Phase 1)**: ✅ Complete
+- **User Story 1 (Phase 2)**: ✅ Complete
+- **User Story 4 (Phase 3)**: Can start now - NEW highlights feature
+- **User Story 2 (Phase 4)**: SKIPPED
+- **User Story 3 (Phase 5)**: Depends on Phase 3 (needs highlights in component)
+- **Polish (Phase 6)**: Depends on all active user stories being complete
 
 ### User Story Dependencies
 
-- **User Story 1 (P1)**: Requires Foundational phase - No dependencies on other stories
-- **User Story 2 (P2)**: Requires US1 (Bio section must exist for navigation)
-- **User Story 3 (P2)**: Requires US1 (BioTimeline component must exist)
+- **User Story 1 (P1)**: ✅ Complete - Bio timeline visible
+- **User Story 4 (P1)**: Requires US1 - Adds highlights to existing timeline
+- **User Story 2 (P2)**: SKIPPED - Bio merged into Introduction
+- **User Story 3 (P2)**: Requires US4 (needs highlights for full responsive test)
 
-### Within Each User Story
+### Within User Story 4
 
-1. Foundational data before component
-2. Component before page integration
-3. Page integration before navigation
+1. Type definitions first (T010, T011)
+2. Data update (T012)
+3. Component update (T013)
 
 ### Parallel Opportunities
 
-- T001 and T002 can run in parallel (different files)
-- T007 and T008 can run in parallel (different checks)
-- US2 and US3 can run in parallel after US1 completes
+- T010 and T011 are in same file but can be done together
+- T015 and T016 can run in parallel (different checks)
 
 ---
 
-## Parallel Example: Foundational Phase
+## Parallel Example: User Story 4 Data Layer
 
 ```bash
-# Launch data layer tasks in parallel:
-Task: "Add BioEntry interface to src/lib/data/types.ts"
-Task: "Create bio entries data file at src/lib/data/bio.ts"
+# Types must be updated first, then data:
+Task: "Add BioHighlight interface to src/lib/data/types.ts"
+Task: "Update BioEntry interface in src/lib/data/types.ts"
+# Then:
+Task: "Add highlights data to bio entries in src/lib/data/bio.ts"
 ```
 
 ## Parallel Example: Polish Phase
@@ -153,31 +177,32 @@ Task: "Run build: npm run build"
 
 ## Implementation Strategy
 
-### MVP First (User Story 1 Only)
+### MVP First (User Story 4 - Highlights)
 
-1. Complete Phase 1: Foundational (T001, T002)
-2. Complete Phase 2: User Story 1 (T003, T004)
-3. **STOP and VALIDATE**: Bio section visible with timeline
-4. Ready to demo core functionality
+1. Complete Phase 3: User Story 4 (T010-T013)
+2. **STOP and VALIDATE**: Highlights visible below descriptions
+3. Ready to demo enhanced functionality
 
 ### Incremental Delivery
 
-1. Complete Foundational → Data layer ready
-2. Add User Story 1 → Bio timeline visible (MVP!)
-3. Add User Story 2 → Navigation works
-4. Add User Story 3 → Mobile verified
+1. ✅ Foundational complete → Data layer ready
+2. ✅ User Story 1 complete → Bio timeline visible (MVP!)
+3. **NEXT**: User Story 4 → Highlights display (Enhanced MVP!)
+4. User Story 3 → Responsive verified
 5. Polish → Ready for merge
 
 ### Suggested Execution Order
 
 ```
-T001 → T002 (parallel possible)
+T010 → T011 (same file, sequential)
      ↓
-T003 → T004 (sequential)
+   T012
      ↓
-T005 (US2) ←→ T006 (US3) (parallel possible)
+   T013
      ↓
-T007 ←→ T008 (parallel) → T009
+   T014 (responsive verification)
+     ↓
+T015 ←→ T016 (parallel) → T017
 ```
 
 ---
@@ -185,7 +210,22 @@ T007 ←→ T008 (parallel) → T009
 ## Notes
 
 - **No tests requested**: Spec does not request explicit test tasks
-- **Mobile-first**: Responsive styling built into T003 per constitution
-- **Logos available**: Institution logos exist at /static/images/ (imperial_logo.png, kaist_logo.png, epfl_logo.png)
-- **Section styling**: Follow existing pattern (border-t-[6px], container, py-24/pb-16)
-- **Navigation**: Uses existing IntersectionObserver for automatic highlighting
+- **Mobile-first**: Responsive styling built into component per constitution
+- **Highlight images**: Optional thumbnails (h-4 w-4) if provided
+- **Highlight URLs**: Links open in new tab with noopener noreferrer
+- **Bio merged into Introduction**: No separate Bio section needed
+- **User Story 2 skipped**: Navigation handled by Introduction nav item
+
+## Summary
+
+| Phase | Status | Tasks |
+|-------|--------|-------|
+| Phase 1: Foundational | ✅ Complete | T001-T002 |
+| Phase 2: User Story 1 | ✅ Complete | T003-T004 |
+| Phase 3: User Story 4 (Highlights) | ✅ Complete | T010-T013 |
+| Phase 4: User Story 2 | ⏭️ Skipped | - |
+| Phase 5: User Story 3 | ⏳ Pending | T014 |
+| Phase 6: Polish | ⏳ Pending | T015-T017 |
+
+**Total Tasks**: 11 (4 complete, 4 new for highlights, 3 verification)
+**MVP Scope**: User Story 4 (T010-T013)
