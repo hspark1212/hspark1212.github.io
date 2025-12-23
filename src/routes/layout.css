@@ -91,7 +91,7 @@ p:last-child {
 }
 
 .major p {
-	font-size: 1.75em;
+	font-size: 1.25em;
 	font-weight: 700;
 	color: var(--color-heading);
 	margin-top: 0.5em;

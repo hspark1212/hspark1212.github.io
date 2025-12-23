@@ -6,8 +6,10 @@
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import PublicationList from '$lib/components/PublicationList.svelte';
 	import ContactForm from '$lib/components/ContactForm.svelte';
+	import BioTimeline from '$lib/components/BioTimeline.svelte';
 	import { profile } from '$lib/data/profile';
 	import { highlights } from '$lib/data/highlights';
+	import { bioEntries } from '$lib/data/bio';
 	import { researchProjects, molecularSimulationDescription } from '$lib/data/research';
 	import { publications } from '$lib/data/publications';
 
@@ -71,34 +73,9 @@
 			<div class="container mx-auto py-24">
 				<header class="major mb-8">
 					<h2>Materials.AI</h2>
-					<p>I'm Hyunsoo Park.</p>
+					<p>Hyunsoo Park · AI Researcher · Computational Materials Scientist</p>
 				</header>
-				<p>
-					I'm a postdoc researcher in Prof. <a
-						href="https://wmd-group.github.io/"
-						target="_blank"
-						rel="noopener noreferrer">Aron Walsh</a
-					>'s team at Imperial College London. I received my PhD degree at KAIST, under guidance of
-					Prof.
-					<a href="https://molsim.kaist.ac.kr/" target="_blank" rel="noopener noreferrer"
-						>Jihan Kim</a
-					>. During my PhD, I have the privilege of working with Prof.
-					<a href="https://www.epfl.ch/labs/lsmo/smit/" target="_blank" rel="noopener noreferrer"
-						>Berend Smit</a
-					> at EPFL as a visiting researcher.
-				</p>
-				<p>
-					I have strong interests in developing computational tools integrating AI for materials
-					design, including structure-property relationship, inverse design, and high-throughput
-					screening.
-				</p>
-				<p>
-					Feel free to explore my <a
-						href="https://github.com/hspark1212"
-						target="_blank"
-						rel="noopener noreferrer">Github profile</a
-					>!
-				</p>
+				<BioTimeline entries={bioEntries} />
 			</div>
 		</section>
 

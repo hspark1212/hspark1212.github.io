@@ -49,3 +49,11 @@ export interface ContactInfo {
 	email: string;
 	message: string;
 }
+
+export interface BioEntry {
+	year: string;
+	institution: string;
+	logo: string;
+	role: string;
+	description: string;
+}

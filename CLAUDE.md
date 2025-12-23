@@ -3,6 +3,7 @@
 Auto-generated from all feature plans. Last updated: 2025-12-18
 
 ## Active Technologies
+- N/A (static data in TypeScript files) (003-bio-timeline)
 
 - TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x, Svelte 5.x (001-portfolio-clone)
 
@@ -23,6 +24,7 @@ npm test && npm run lint
 TypeScript (strict mode) with Svelte 5: Follow standard conventions
 
 ## Recent Changes
+- 003-bio-timeline: Added TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x
 
 - 001-portfolio-clone: Added TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x, Svelte 5.x
 
