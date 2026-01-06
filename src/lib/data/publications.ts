@@ -6,7 +6,8 @@ export const publications: Publication[] = [
 		number: 21,
 		year: 2025,
 		authors: '<b>Hyunsoo P.<sup>†</sup></b>, Aron W.<sup>†</sup>',
-		title: 'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
+		title:
+			'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
 		journal: 'arXiv preprint (2025)',
 		url: 'https://arxiv.org/abs/2511.07158v1',
 		isHighlighted: true
@@ -15,7 +16,8 @@ export const publications: Publication[] = [
 		number: 20,
 		year: 2025,
 		authors: 'Masahiro N., <b>Hyunsoo P.</b>, Kinga O. M., Aron W.',
-		title: 'Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals',
+		title:
+			'Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals',
 		journal: 'NeurIPS Workshop AI4Science (2025)',
 		url: 'https://arxiv.org/abs/2510.12405',
 		isHighlighted: false
@@ -211,7 +213,8 @@ export const publications: Publication[] = [
 	{
 		number: 1,
 		year: 2019,
-		authors: 'Ohmin K., Jin Yeong K., Sungbin P., Jae Hwa L., Junsu H., <b>Hyunsoo P.</b>, Hoi Ri M., and Jihan K.',
+		authors:
+			'Ohmin K., Jin Yeong K., Sungbin P., Jae Hwa L., Junsu H., <b>Hyunsoo P.</b>, Hoi Ri M., and Jihan K.',
 		title: 'Computer-aided discovery of connected metal-organic frameworks',
 		journal: 'Nature Communications. 10, 1-8 (2019)',
 		url: 'https://www.nature.com/articles/s41467-019-11629-4',

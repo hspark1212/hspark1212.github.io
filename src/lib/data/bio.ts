@@ -14,8 +14,7 @@ export const bioEntries: BioEntry[] = [
 				image: '/images/chemeleon_logo.jpg'
 			},
 			{
-				description: 'MatScholar - AI-powered research assistant for materials science',
-
+				description: 'MatScholar - AI-powered research assistant for materials science'
 			}
 		]
 	},

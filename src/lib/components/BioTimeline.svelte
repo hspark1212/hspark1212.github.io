@@ -43,7 +43,9 @@
 						/>
 					</div>
 					<!-- Role - same height as logo for alignment -->
-					<span class="flex h-10 items-center text-sm font-semibold text-heading md:h-12 md:text-base">
+					<span
+						class="flex h-10 items-center text-sm font-semibold text-heading md:h-12 md:text-base"
+					>
 						{entry.role}
 					</span>
 				</div>
@@ -52,7 +54,7 @@
 				<!-- Highlights -->
 				{#if entry.highlights?.length}
 					<div class="mt-3 flex flex-wrap gap-4">
-						{#each entry.highlights as highlight}
+						{#each entry.highlights as highlight (highlight.description)}
 							<div class="flex flex-col gap-2">
 								<span class="text-xs text-body md:text-sm">{highlight.description}</span>
 								{#if highlight.image}
