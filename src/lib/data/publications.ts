@@ -3,7 +3,7 @@ import type { Publication } from './types';
 export const publications: Publication[] = [
 	// 2025
 	{
-		number: 21,
+		number: 23,
 		year: 2025,
 		authors: '<b>Hyunsoo P.<sup>†</sup></b>, Aron W.<sup>†</sup>',
 		title:
@@ -13,9 +13,27 @@ export const publications: Publication[] = [
 		isHighlighted: true
 	},
 	{
+		number: 22,
+		year: 2025,
+		authors: '<b>Hyunsoo P.</b>, Kinga O M., Panyalak D., Ryan N., Aron W.',
+		title: 'Closing the synthesis gap in computational materials design',
+		journal: 'ChemRxiv preprint (2025)',
+		url: 'https://chemrxiv.org/engage/chemrxiv/article-details/68ed4bffdfd0d042d1536798',
+		isHighlighted: true
+	},
+	{
+		number: 21,
+		year: 2025,
+		authors: 'Tianshu L., <b>Hyunsoo P.</b>, Aron W.',
+		title: 'Data-Driven Crystal Structure Prediction for Ternary Metal Chalcogenides',
+		journal: 'Chemistry of Materials (2025)',
+		url: 'https://pubs.acs.org/doi/full/10.1021/acs.chemmater.5c02077',
+		isHighlighted: false
+	},
+	{
 		number: 20,
 		year: 2025,
-		authors: 'Masahiro N., <b>Hyunsoo P.</b>, Kinga O. M., Aron W.',
+		authors: 'Masahiro N., <b>Hyunsoo P.</b>, Kinga O M., Aron W.',
 		title:
 			'Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals',
 		journal: 'NeurIPS Workshop AI4Science (2025)',

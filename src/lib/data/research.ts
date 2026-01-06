@@ -15,6 +15,15 @@ export const researchProjects: ResearchProject[] = [
 	{
 		category: 'machine-learning',
 		description:
+			'Perspective on bridging the gap between computational materials discovery and real-world experimental synthesis',
+		image: '/images/bridge_toc.png',
+		title: 'Closing the synthesis gap in computational materials design',
+		journal: 'ChemRxiv preprint (2025)',
+		url: 'https://chemrxiv.org/engage/chemrxiv/article-details/68ed4bffdfd0d042d1536798'
+	},
+	{
+		category: 'machine-learning',
+		description:
 			'DAC-SIM: a molecular simulation package integrating machine learning force fields in MOFs for CO₂ Direct Air Capture',
 		image: '/images/dac_sim_toc.jpg',
 		title:

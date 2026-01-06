@@ -51,10 +51,7 @@
 
 <svelte:head>
 	<title>Hyunsoo Park | Materials.AI</title>
-	<meta
-		name="description"
-		content="Hyunsoo Park - Postdoctoral Researcher at Imperial College London specializing in Materials AI and computational materials design."
-	/>
+	<meta name="description" content="Hyunsoo Park's Portfolio" />
 </svelte:head>
 
 <!-- Mobile Header (hamburger menu) -->
@@ -73,7 +70,10 @@
 			<div class="container mx-auto py-24">
 				<header class="major mb-8">
 					<h2>Materials.AI</h2>
-					<p>Hyunsoo Park · AI Researcher · Computational Materials Scientist</p>
+					<p>
+						I am Hyunsoo Park, an AI Researcher working at the intersection of Machine Learning and
+						Materials Science, built on Computational Chemistry.
+					</p>
 				</header>
 				<BioTimeline entries={bioEntries} />
 			</div>
