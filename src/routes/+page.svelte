@@ -7,6 +7,7 @@
 	import PublicationList from '$lib/components/PublicationList.svelte';
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import BioTimeline from '$lib/components/BioTimeline.svelte';
+	import Section from '$lib/components/Section.svelte';
 	import { profile } from '$lib/data/profile';
 	import { highlights } from '$lib/data/highlights';
 	import { bioEntries } from '$lib/data/bio';
@@ -65,83 +66,65 @@
 	<!-- Main Content -->
 	<div id="main">
 		<!-- Introduction Section -->
-		<section id="one">
-			<!-- Content Container -->
-			<div class="container mx-auto py-24">
-				<header class="major mb-8">
-					<h2>Materials.AI</h2>
-					<p>
-						I am Hyunsoo Park, an AI Researcher working at the intersection of Machine Learning and
-						Materials Science, built on Computational Chemistry.
-					</p>
-				</header>
-				<BioTimeline entries={bioEntries} />
-			</div>
-		</section>
+		<!-- Introduction Section -->
+		<Section id="one">
+			<header class="major mb-8">
+				<h2>Materials.AI</h2>
+				<p>
+					I am Hyunsoo Park, an AI Researcher working at the intersection of Machine Learning and
+					Materials Science, built on Computational Chemistry.
+				</p>
+			</header>
+		</Section>
 
 		<!-- Placeholder sections for navigation -->
-		<section id="highlights" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto pt-24 pb-16">
-				<h3>Latest Highlights</h3>
-				{#each highlights as highlight (highlight.date + highlight.content.slice(0, 20))}
-					<HighlightItem {highlight} />
+		<Section id="highlights" title="Latest Highlights" class="border-t-[6px] border-border-section">
+			{#each highlights as highlight (highlight.date + highlight.content.slice(0, 20))}
+				<HighlightItem {highlight} />
+			{/each}
+		</Section>
+
+		<Section id="experience" title="Experience" class="border-t-[6px] border-border-section">
+			<BioTimeline entries={bioEntries} />
+		</Section>
+
+		<Section id="research" title="Research" class="border-t-[6px] border-border-section">
+			<!-- Machine Learning -->
+			<h4>Machine Learning</h4>
+			<div class="features">
+				{#each machineLearning as project (project.title)}
+					<ArticleCard {project} />
 				{/each}
 			</div>
-		</section>
-
-		<section id="research" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto pt-24 pb-16">
-				<h3>Research</h3>
-
-				<!-- Machine Learning -->
-				<h4>Machine Learning</h4>
-				<div class="features">
-					{#each machineLearning as project (project.title)}
-						<ArticleCard {project} />
-					{/each}
-				</div>
-			</div>
-		</section>
+		</Section>
 
 		<!-- Molecular Simulation -->
-		<section id="three" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto pt-24 pb-16">
-				<h3>Molecular Simulation</h3>
-				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-				<p>{@html molecularSimulationDescription}</p>
-				<div class="features">
-					{#each molecularSimulation as project (project.title)}
-						<ArticleCard {project} />
-					{/each}
-				</div>
+		<Section id="three" title="Molecular Simulation" class="border-t-[6px] border-border-section">
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+			<p>{@html molecularSimulationDescription}</p>
+			<div class="features">
+				{#each molecularSimulation as project (project.title)}
+					<ArticleCard {project} />
+				{/each}
 			</div>
-		</section>
+		</Section>
 
 		<!-- Material Design -->
-		<section id="four" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto pt-24 pb-16">
-				<h3>Material Design</h3>
-				<div class="features">
-					{#each materialDesign as project (project.title)}
-						<ArticleCard {project} />
-					{/each}
-				</div>
+		<Section id="four" title="Material Design" class="border-t-[6px] border-border-section">
+			<div class="features">
+				{#each materialDesign as project (project.title)}
+					<ArticleCard {project} />
+				{/each}
 			</div>
-		</section>
+		</Section>
 
-		<section id="publications" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto pt-24 pb-16">
-				<h3>Publications</h3>
-				<PublicationList {publications} />
-			</div>
-		</section>
+		<Section id="publications" title="Publications" class="border-t-[6px] border-border-section">
+			<PublicationList {publications} />
+		</Section>
 
-		<section id="contact" class="border-t-[6px] border-border-section">
-			<div class="container mx-auto pt-24 pb-16">
-				<h3>Contact Me</h3>
-				<p>Please email me at <a href="mailto:{profile.email}">{profile.email}</a></p>
-				<ContactForm />
-			</div>
-		</section>
+		<Section id="contact" title="Contact Me" class="border-t-[6px] border-border-section">
+			<p>Please email me at <a href="mailto:{profile.email}">{profile.email}</a></p>
+			<ContactForm />
+		</Section>
 	</div>
 </div>

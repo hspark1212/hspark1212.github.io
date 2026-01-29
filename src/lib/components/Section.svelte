@@ -4,13 +4,14 @@
 	interface Props {
 		id: string;
 		title?: string;
+		class?: string;
 		children: Snippet;
 	}
 
-	let { id, title, children }: Props = $props();
+	let { id, title, class: className = '', children }: Props = $props();
 </script>
 
-<section {id} class="py-12">
+<section {id} class="pt-24 pb-16 {className}">
 	<div class="container mx-auto px-6">
 		{#if title}
 			<header class="mb-8">

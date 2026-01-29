@@ -33,6 +33,7 @@ export const socialLinks: SocialLink[] = [
 export const navItems: NavItem[] = [
 	{ label: 'Introduction', targetId: 'one' },
 	{ label: 'Latest Highlights', targetId: 'highlights' },
+	{ label: 'Experience', targetId: 'experience' },
 	{ label: 'Research', targetId: 'research' },
 	{ label: 'Publications', targetId: 'publications' },
 	{ label: 'Contact Me', targetId: 'contact' }
