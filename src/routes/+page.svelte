@@ -6,11 +6,10 @@
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import PublicationList from '$lib/components/PublicationList.svelte';
 	import ContactForm from '$lib/components/ContactForm.svelte';
-	import BioTimeline from '$lib/components/BioTimeline.svelte';
+	import Timeline from '$lib/components/Timeline.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import { profile } from '$lib/data/profile';
-	import { highlights } from '$lib/data/highlights';
-	import { bioEntries } from '$lib/data/bio';
+	import { timelineData } from '$lib/data/timeline';
 	import { researchProjects, molecularSimulationDescription } from '$lib/data/research';
 	import { publications } from '$lib/data/publications';
 
@@ -78,14 +77,9 @@
 		</Section>
 
 		<!-- Placeholder sections for navigation -->
-		<Section id="highlights" title="Latest Highlights" class="border-t-[6px] border-border-section">
-			{#each highlights as highlight (highlight.date + highlight.content.slice(0, 20))}
-				<HighlightItem {highlight} />
-			{/each}
-		</Section>
-
-		<Section id="experience" title="Experience" class="border-t-[6px] border-border-section">
-			<BioTimeline entries={bioEntries} />
+		<!-- Timeline Section (Unified Highlights & Experience) -->
+		<Section id="timeline" title="Timeline" class="border-t-[6px] border-border-section">
+			<Timeline entries={timelineData} />
 		</Section>
 
 		<Section id="research" title="Research" class="border-t-[6px] border-border-section">

@@ -64,3 +64,16 @@ export interface BioEntry {
 	description: string;
 	highlights?: BioHighlight[];
 }
+
+export interface TimelineItem {
+	type: 'bio' | 'highlight';
+	date: string;
+	sortDate: Date;
+	logo?: string;
+	title?: string; // Role for bio, or title for highlight
+	institution?: string; // For bio
+	content: string; // Description or content
+	image?: string; // For highlight image
+	links?: { label: string; url: string }[];
+	highlights?: BioHighlight[]; // For bio specific sub-highlights
+}
