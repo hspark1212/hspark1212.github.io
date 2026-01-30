@@ -16,16 +16,6 @@ export interface NavItem {
 	targetId: string;
 }
 
-export interface Highlight {
-	date: string;
-	content: string;
-	image?: {
-		src: string;
-		alt: string;
-		width?: number;
-	};
-}
-
 export interface ResearchProject {
 	category: 'machine-learning' | 'molecular-simulation' | 'material-design';
 	description: string;
@@ -50,30 +40,19 @@ export interface ContactInfo {
 	message: string;
 }
 
-export interface BioHighlight {
-	description: string;
-	url?: string;
-	image?: string;
-}
-
 export interface BioEntry {
 	year: string;
 	institution: string;
 	logo: string;
 	role: string;
 	description: string;
-	highlights?: BioHighlight[];
 }
 
 export interface TimelineItem {
-	type: 'bio' | 'highlight';
 	date: string;
 	sortDate: Date;
-	logo?: string;
-	title?: string; // Role for bio, or title for highlight
-	institution?: string; // For bio
-	content: string; // Description or content
-	image?: string; // For highlight image
-	links?: { label: string; url: string }[];
-	highlights?: BioHighlight[]; // For bio specific sub-highlights
+	logo: string;
+	title: string;
+	institution: string;
+	content: string;
 }

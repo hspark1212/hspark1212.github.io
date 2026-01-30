@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import MobileHeader from '$lib/components/MobileHeader.svelte';
-	import HighlightItem from '$lib/components/HighlightItem.svelte';
 	import ArticleCard from '$lib/components/ArticleCard.svelte';
 	import PublicationList from '$lib/components/PublicationList.svelte';
 	import ContactForm from '$lib/components/ContactForm.svelte';

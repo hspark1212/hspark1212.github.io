@@ -1,75 +1,138 @@
-# my_website Development Guidelines
+# CLAUDE.md
 
-Auto-generated from all feature plans. Last updated: 2025-12-18
+## Project Overview
 
-## Active Technologies
+Personal academic portfolio website for Hyunsoo Park (Materials.AI researcher). Single-page application showcasing research, publications, timeline, and contact info.
 
-- N/A (static data in TypeScript files) (003-bio-timeline)
-- TypeScript (strict mode), Svelte 5 + SvelteKit v2.x + Tailwind CSS v4.x (003-bio-timeline)
+## Tech Stack
 
-- TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x, Svelte 5.x (001-portfolio-clone)
-
-## Project Structure
-
-```text
-backend/
-frontend/
-tests/
-```
+- **Framework**: SvelteKit v2 (Svelte 5) with TypeScript strict mode
+- **Styling**: Tailwind CSS v4 (via Vite plugin, NOT PostCSS)
+- **Build**: Vite 7, adapter-auto
+- **Testing**: Playwright (E2E only)
+- **Linting**: ESLint + Prettier (auto-format on commit via hook)
 
 ## Commands
 
-npm test && npm run lint
+```bash
+npm run dev          # Dev server (--host)
+npm run build        # Production build
+npm run check        # TypeScript + Svelte diagnostics
+npm run lint         # Prettier + ESLint check
+npm run format       # Prettier auto-format
+npm run test:e2e     # Playwright E2E tests
+```
 
-## Code Style
+**Quality gates before merge**: `npm run check && npm run lint && npm run build`
 
-TypeScript (strict mode) with Svelte 5: Follow standard conventions
+## Project Structure
 
-## Recent Changes
+```
+src/
+├── routes/
+│   ├── +page.svelte        # Single page (all sections)
+│   ├── +layout.svelte      # Root layout (imports CSS)
+│   └── layout.css          # Tailwind imports + theme variables + base styles
+├── lib/
+│   ├── components/         # UI components (PascalCase.svelte)
+│   │   ├── Sidebar.svelte        # Fixed right sidebar with nav + profile
+│   │   ├── MobileHeader.svelte   # Hamburger menu for mobile
+│   │   ├── Section.svelte        # Reusable section wrapper
+│   │   ├── Timeline.svelte       # Unified bio + highlights timeline
+│   │   ├── BioTimeline.svelte    # Bio-specific timeline
+│   │   ├── HighlightItem.svelte  # Individual highlight entry
+│   │   ├── ArticleCard.svelte    # Research project card
+│   │   ├── PublicationList.svelte # Publication listing
+│   │   └── ContactForm.svelte    # Contact form
+│   ├── data/               # Static data files (typed exports)
+│   │   ├── types.ts        # All TypeScript interfaces
+│   │   ├── profile.ts      # Name, links, nav items
+│   │   ├── timeline.ts     # Unified timeline data
+│   │   ├── bio.ts          # Bio/education entries
+│   │   ├── highlights.ts   # Highlight entries
+│   │   ├── research.ts     # Research projects (3 categories)
+│   │   └── publications.ts # Publication list
+│   ├── assets/             # SVG assets (favicon)
+│   └── index.ts            # Lib barrel export
+├── app.html                # HTML shell (Google Fonts: Lato)
+└── app.d.ts                # SvelteKit type declarations
+static/
+└── images/                 # All images (photos, logos, research TOC figures)
+```
 
-- 003-bio-timeline: Added TypeScript (strict mode), Svelte 5 + SvelteKit v2.x + Tailwind CSS v4.x
-- 003-bio-timeline: Added TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x
+## Architecture Patterns
 
-- 001-portfolio-clone: Added TypeScript (strict mode) with Svelte 5 + SvelteKit v2.x, Tailwind CSS v4.x, Svelte 5.x
+### Single-Page Layout
 
-<!-- MANUAL ADDITIONS START -->
+- One route (`+page.svelte`) with multiple `<Section>` components
+- Fixed right sidebar (`Sidebar.svelte`) with navigation
+- IntersectionObserver tracks active section for nav highlighting
+- Mobile: hamburger menu toggles sidebar overlay
 
-## Original Site Reference
+### Data Layer
 
-- The original HTML site is located at `hspark1212.github.io-master/`
-- Reference `hspark1212.github.io-master/index.html` for HTML structure
-- Reference `hspark1212.github.io-master/assets/css/main.css` for styling
+- All content lives in `src/lib/data/*.ts` as typed const exports
+- Types defined centrally in `types.ts`
+- No API calls, no CMS — pure static data
+- Research projects categorized: `machine-learning`, `molecular-simulation`, `material-design`
 
-## Git Commit Guidelines
+### Component Conventions
 
-- Do NOT include "🤖 Generated with [Claude Code](https://claude.com/claude-code)" in commit messages
-- Do NOT include "Co-Authored-By: Claude" lines
-- Keep commit messages concise and conventional (type(scope): description)
+- **Props**: Svelte 5 `$props()` with TypeScript `interface Props`
+- **State**: `$state()` runes only (no legacy `$:` or stores)
+- **Snippets**: `Snippet` type from svelte for children/slots
+- **Events**: Callback props (`onClose`, `onMenuClick`), not `createEventDispatcher`
 
-## Tailwind CSS v4 Guidelines
+## Coding Standards
 
-- Use the new `!important` syntax: `text-white!` instead of `!text-white`
-- Place the `!` modifier at the END of the class name
-- Examples: `hover:text-accent!`, `bg-white!`, `text-white!`
-- Prefer predefined utility classes over arbitrary values (e.g., `pr-92` instead of `pr-[23rem]`)
-- **DO NOT** add utility classes that apply browser default values (e.g., `p-0` on `<li>` elements)
-  - Only add classes when overriding existing styles or when explicitly needed
-  - Example: Remove unnecessary `p-0` since `<li>` has no default padding
+### Svelte 5 Only (NON-NEGOTIABLE)
 
-## Color Management
+- `$state()`, `$derived()`, `$effect()` — no legacy reactive statements
+- `$props()` — no `export let`
+- `{@render children()}` — no `<slot>`
 
-- **DO NOT** use arbitrary color values directly in components (e.g., `border-[#f4f4f4]`)
-- **ALWAYS** define reusable colors in `src/routes/layout.css` under the `@theme` section
-- Use semantic color names that describe their purpose, not their appearance
-- Current color tokens:
-  - `--color-border-section`: Section dividers (#f4f4f4)
-  - `--color-border-link`: Link underlines (#e4e4e4)
-  - `--color-border-nav`: Navigation borders (#5ccfb1)
-- Example usage: `border-border-section` instead of `border-[#f4f4f4]`
+### Formatting (Prettier enforced)
 
-## Link Guidelines
+- Tabs for indentation
+- Single quotes
+- No trailing commas (except multiline)
+- Print width: 100
+- Plugins: prettier-plugin-svelte, prettier-plugin-tailwindcss
 
-- Keep links simple: `<a href={url}>` is sufficient for most cases
-- **DO NOT** add `target="_blank"` and `rel="noopener noreferrer"` unless explicitly needed
-- Use `border-b-0!` to remove default link underlines from `#main a` styling
-<!-- MANUAL ADDITIONS END -->
+### Imports
+
+- Use `$lib/` alias for all lib imports
+- Order: svelte → external libs → `$lib/components` → `$lib/data` → types
+
+### Styling
+
+- Tailwind utility classes (no scoped `<style>` blocks unless unavoidable)
+- Theme variables defined in `layout.css` via `@theme {}`
+- Custom colors: `accent`, `heading`, `body`, `sidebar-bg`, `sidebar-text`, etc.
+- Responsive: mobile-first, key breakpoint at `md:` (1024px)
+
+### TypeScript
+
+- Strict mode enabled
+- All data structures have interfaces in `types.ts`
+- Use `interface` (not `type`) for object shapes
+
+## Commit Format
+
+```
+type(scope): description
+# Types: feat, fix, docs, style, refactor, chore
+# Example: feat(projects): add project card component
+```
+
+## Branch Naming
+
+Feature branches: `NNN-feature-description` (e.g., `003-bio-timeline`)
+
+## Key Design Decisions
+
+1. **No SSR data loading** — all data is static imports, no `+page.server.ts`
+2. **No dark mode** — single light theme
+3. **No external dependencies** beyond SvelteKit + Tailwind ecosystem
+4. **layout.css is NOT pure Tailwind** — contains base typography and link styles as vanilla CSS (intentional, not a violation)
+5. **SVG icons inline** in components (no icon library)
