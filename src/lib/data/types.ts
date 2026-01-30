@@ -46,6 +46,7 @@ export interface BioEntry {
 	logo: string;
 	role: string;
 	description: string;
+	tags?: string[];
 }
 
 export interface TimelineItem {
