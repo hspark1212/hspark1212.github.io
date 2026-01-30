@@ -6,9 +6,10 @@
 	import PublicationList from '$lib/components/PublicationList.svelte';
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import Timeline from '$lib/components/Timeline.svelte';
+	import HeroAnimation from '$lib/components/HeroAnimation.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import { profile } from '$lib/data/profile';
-	import { timelineData } from '$lib/data/timeline';
+	import { bioEntries } from '$lib/data/bio';
 	import { researchProjects, molecularSimulationDescription } from '$lib/data/research';
 	import { publications } from '$lib/data/publications';
 
@@ -68,17 +69,14 @@
 		<Section id="one">
 			<header class="major mb-8">
 				<h2>Materials.AI</h2>
-				<p>
-					I am Hyunsoo Park, an AI Researcher working at the intersection of Machine Learning and
-					Materials Science, built on Computational Chemistry.
-				</p>
+				<HeroAnimation />
 			</header>
 		</Section>
 
 		<!-- Placeholder sections for navigation -->
-		<!-- Timeline Section (Unified Highlights & Experience) -->
-		<Section id="timeline" title="Timeline" class="border-t-[6px] border-border-section">
-			<Timeline entries={timelineData} />
+		<!-- Bio Section -->
+		<Section id="bio" title="Bio" class="border-t-[6px] border-border-section">
+			<Timeline entries={bioEntries} />
 		</Section>
 
 		<Section id="research" title="Research" class="border-t-[6px] border-border-section">

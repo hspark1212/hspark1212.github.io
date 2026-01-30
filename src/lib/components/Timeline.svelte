@@ -1,22 +1,22 @@
 <script lang="ts">
-	import type { TimelineItem } from '$lib/data/types';
+	import type { BioEntry } from '$lib/data/types';
 
 	interface Props {
-		entries: TimelineItem[];
+		entries: BioEntry[];
 	}
 
 	let { entries }: Props = $props();
 </script>
 
 <div class="relative">
-	{#each entries as entry, index (entry.date + entry.title.slice(0, 10))}
+	{#each entries as entry, index (entry.year + entry.role)}
 		<!-- Article wrapper -->
 		<article class="relative flex gap-4 md:gap-8">
 			<!-- Date column -->
 			<div
 				class="flex h-10 w-16 shrink-0 items-center justify-end text-sm font-medium text-heading md:h-12 md:w-20 md:text-base"
 			>
-				<time>{entry.date}</time>
+				<time>{entry.year}</time>
 			</div>
 
 			<!-- Timeline dot and line column -->
@@ -49,7 +49,7 @@
 					</div>
 					<div class="flex h-10 flex-col justify-center md:h-12">
 						<span class="text-sm leading-tight font-semibold text-heading md:text-base">
-							{entry.title}
+							{entry.role}
 						</span>
 						<span class="text-xs text-body md:text-sm">{entry.institution}</span>
 					</div>
@@ -57,7 +57,7 @@
 				<!-- Description -->
 				<div class="mt-2 text-sm leading-relaxed text-body md:text-base">
 					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-					{@html entry.content}
+					{@html entry.description}
 				</div>
 			</div>
 		</article>

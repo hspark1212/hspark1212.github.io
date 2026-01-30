@@ -32,7 +32,7 @@ export const socialLinks: SocialLink[] = [
 
 export const navItems: NavItem[] = [
 	{ label: 'Introduction', targetId: 'one' },
-	{ label: 'Timeline', targetId: 'timeline' },
+	{ label: 'Bio', targetId: 'bio' },
 	{ label: 'Research', targetId: 'research' },
 	{ label: 'Publications', targetId: 'publications' },
 	{ label: 'Contact Me', targetId: 'contact' }
