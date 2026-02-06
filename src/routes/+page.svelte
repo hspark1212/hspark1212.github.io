@@ -6,36 +6,22 @@
 	import Projects from '$lib/components/Projects.svelte';
 	import Tutorials from '$lib/components/Tutorials.svelte';
 	import BlogPreview from '$lib/components/BlogPreview.svelte';
+	import PublicationList from '$lib/components/PublicationList.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import { bioEntries } from '$lib/data/bio';
+	import { publications } from '$lib/data/publications';
+	import { trackedSectionIds, type SectionId } from '$lib/data/sections';
+	import { observeActiveSection } from '$lib/utils/observeActiveSection';
 
-	let activeSection = $state('hero');
+	let activeSection = $state<SectionId>('hero');
 
 	onMount(() => {
-		const sections = document.querySelectorAll('section[id], header[id]');
-		const observerOptions = {
-			root: null,
-			rootMargin: '-40% 0px -60% 0px',
-			threshold: 0
-		};
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					activeSection = entry.target.id;
-				}
-			});
-		}, observerOptions);
-
-		sections.forEach((section) => {
-			observer.observe(section);
+		return observeActiveSection({
+			ids: trackedSectionIds,
+			onChange: (id) => {
+				activeSection = id;
+			}
 		});
-
-		return () => {
-			sections.forEach((section) => {
-				observer.unobserve(section);
-			});
-		};
 	});
 </script>
 
@@ -65,13 +51,10 @@
 
 	<BlogPreview />
 
+	<section id="publications" class="mb-16">
+		<h2 class="mb-8 font-serif text-2xl font-semibold text-text-primary">Paper</h2>
+		<PublicationList {publications} />
+	</section>
+
 	<Contact />
-
-	<footer class="mt-16 text-center text-sm text-text-subtle">2025 Hyunsoo Park</footer>
 </main>
-
-<style>
-	.font-serif {
-		font-family: 'Newsreader', Georgia, serif;
-	}
-</style>

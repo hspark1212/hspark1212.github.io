@@ -1,4 +1,4 @@
-import type { Profile, SocialLink, NavItem } from './types';
+import type { Profile, SocialLink } from './types';
 
 export const profile: Profile = {
 	name: 'Hyunsoo Park',
@@ -14,11 +14,6 @@ export const socialLinks: SocialLink[] = [
 		label: 'Google Scholar'
 	},
 	{
-		platform: 'twitter',
-		url: 'https://twitter.com/hspark1212',
-		label: 'Twitter'
-	},
-	{
 		platform: 'linkedin',
 		url: 'https://www.linkedin.com/in/hyunsoo-park-9313ab234/',
 		label: 'LinkedIn'
@@ -28,12 +23,4 @@ export const socialLinks: SocialLink[] = [
 		url: 'https://github.com/hspark1212',
 		label: 'GitHub'
 	}
-];
-
-export const navItems: NavItem[] = [
-	{ label: 'Introduction', targetId: 'one' },
-	{ label: 'Bio', targetId: 'bio' },
-	{ label: 'Research', targetId: 'research' },
-	{ label: 'Publications', targetId: 'publications' },
-	{ label: 'Contact Me', targetId: 'contact' }
 ];

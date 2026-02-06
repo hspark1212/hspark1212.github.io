@@ -11,13 +11,13 @@ export interface SocialLink {
 	label: string;
 }
 
-export interface NavItem {
-	label: string;
-	targetId: string;
-}
+export type ResearchProjectCategory =
+	| 'machine-learning'
+	| 'molecular-simulation'
+	| 'material-design';
 
 export interface ResearchProject {
-	category: 'machine-learning' | 'molecular-simulation' | 'material-design';
+	category: ResearchProjectCategory;
 	description: string;
 	image: string;
 	title: string;
@@ -63,7 +63,6 @@ export interface Tutorial {
 	description: string;
 	type: 'notebook' | 'colab' | 'docs' | 'github';
 	url: string;
-	icon: string;
 }
 
 export interface BlogPost {

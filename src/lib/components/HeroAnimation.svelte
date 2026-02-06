@@ -18,7 +18,7 @@
 	];
 
 	let currentIndex = $state(0);
-	let intervalId: any;
+	let intervalId: ReturnType<typeof setInterval> | undefined;
 
 	onMount(() => {
 		intervalId = setInterval(() => {
@@ -27,7 +27,7 @@
 	});
 
 	onDestroy(() => {
-		if (intervalId) clearInterval(intervalId);
+		if (intervalId !== undefined) clearInterval(intervalId);
 	});
 </script>
 

@@ -27,6 +27,27 @@ export const featuredProjects: FeaturedProject[] = [
 		github: 'https://github.com/hspark1212/DAC-SIM'
 	},
 	{
+		id: 'chemeleon',
+		title: 'Exploration of crystal chemical space using text-guided generative artificial intelligence',
+		shortTitle: 'Chemeleon',
+		description: 'A text-guided generative AI model for crystal structures',
+		image: '/images/chemeleon_toc.jpg',
+		journal: 'Nature Communications',
+		year: 2025,
+		url: 'https://www.nature.com/articles/s41467-025-59636-y'
+	},
+	{
+		id: 'global-llm-hackathon',
+		title: 'Won 1st Place in Global LLM Hackathon for Applications in Materials Science & Chemistry',
+		shortTitle: 'LLM Hackathon',
+		description:
+			'1st Place Winner at the Global LLM Hackathon for Applications in Materials Science & Chemistry',
+		image: '/images/global_llm_hackathon.jpg',
+		journal: 'Global LLM Hackathon',
+		year: 2025,
+		url: 'https://llmhackathon.github.io/awards/'
+	},
+	{
 		id: 'moftransformer',
 		title:
 			'A Multi-modal Pre-training Transformer for Universal Transfer Learning in Metal-Organic Frameworks',

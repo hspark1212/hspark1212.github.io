@@ -1,4 +1,16 @@
-import type { ResearchProject } from './types';
+import type { ResearchProject, ResearchProjectCategory } from './types';
+
+export const projectCategories: ResearchProjectCategory[] = [
+	'machine-learning',
+	'molecular-simulation',
+	'material-design'
+];
+
+export const projectCategoryLabels: Record<ResearchProjectCategory, string> = {
+	'machine-learning': 'Machine Learning',
+	'molecular-simulation': 'Molecular Simulation',
+	'material-design': 'Material Design'
+};
 
 export const researchProjects: ResearchProject[] = [
 	// Machine Learning

@@ -1,16 +1,11 @@
 <script lang="ts">
+	import { navigationSections, type SectionId } from '$lib/data/sections';
+
 	interface Props {
-		activeSection?: string;
+		activeSection?: SectionId;
 	}
 
 	let { activeSection = 'hero' }: Props = $props();
-
-	const navItems = [
-		{ label: 'Journey', id: 'journey' },
-		{ label: 'Projects', id: 'projects' },
-		{ label: 'Tutorials', id: 'tutorials' },
-		{ label: 'Blog', id: 'blog' }
-	];
 </script>
 
 <nav class="fixed top-0 right-0 left-0 z-50 bg-bg/80 backdrop-blur-sm">
@@ -20,7 +15,7 @@
 		</a>
 
 		<div class="flex gap-6">
-			{#each navItems as item (item.id)}
+			{#each navigationSections as item (item.id)}
 				<a
 					href={`#${item.id}`}
 					class="text-sm no-underline transition-colors {activeSection === item.id
@@ -33,13 +28,3 @@
 		</div>
 	</div>
 </nav>
-
-<style>
-	.font-serif {
-		font-family: 'Newsreader', Georgia, serif;
-	}
-
-	a {
-		border-bottom: none !important;
-	}
-</style>

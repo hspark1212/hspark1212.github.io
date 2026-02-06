@@ -1,31 +1,71 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
+	import SectionToggleButton from '$lib/components/SectionToggleButton.svelte';
 	import { featuredProjects } from '$lib/data/featuredProjects';
-	import { researchProjects } from '$lib/data/research';
+	import { projectCategories, projectCategoryLabels, researchProjects } from '$lib/data/research';
 
 	let expanded = $state(false);
+	let featuredRail: HTMLDivElement | null = null;
+
+	function scrollFeatured(direction: -1 | 1) {
+		if (!featuredRail) return;
+		featuredRail.scrollBy({ left: direction * 360, behavior: 'smooth' });
+	}
+
+	const categorizedProjects = projectCategories
+		.map((category) => ({
+			id: category,
+			label: projectCategoryLabels[category],
+			projects: researchProjects.filter((project) => project.category === category)
+		}))
+		.filter((categoryGroup) => categoryGroup.projects.length > 0);
 </script>
 
 <section id="projects" class="mb-16">
-	<h2 class="mb-8 font-serif text-2xl font-semibold text-text-primary">Projects</h2>
+	<div class="mb-4 flex items-center justify-between gap-3">
+		<h2 class="font-serif text-2xl font-semibold text-text-primary">Featured</h2>
+		<div class="hidden items-center gap-2 md:flex">
+			<button
+				type="button"
+				aria-label="Scroll featured left"
+				onclick={() => scrollFeatured(-1)}
+				class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-border-link text-text-subtle transition-colors hover:border-text-primary hover:text-text-primary"
+			>
+				←
+			</button>
+			<button
+				type="button"
+				aria-label="Scroll featured right"
+				onclick={() => scrollFeatured(1)}
+				class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-border-link text-text-subtle transition-colors hover:border-text-primary hover:text-text-primary"
+			>
+				→
+			</button>
+		</div>
+	</div>
 
-	<div class="mb-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+	<div
+		bind:this={featuredRail}
+		class="mb-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 [scrollbar-width:thin]"
+	>
 		{#each featuredProjects as project (project.id)}
 			<a
 				href={project.url}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="group block overflow-hidden rounded-xl bg-bg-card shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+				class="group block min-w-[92%] snap-start overflow-hidden rounded-xl border border-border-link bg-bg-card no-underline shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-text-primary hover:shadow-card-hover sm:min-w-[78%] md:min-w-[62%] lg:min-w-[44%]"
 			>
-				<div class="aspect-[4/3] overflow-hidden bg-border-section">
-					<img
-						src={project.image}
-						alt={project.shortTitle}
-						class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-					/>
+				<div class="aspect-[5/4] overflow-hidden border-b border-border-link bg-[#fcfbf8] p-2">
+					<div class="h-full w-full overflow-hidden rounded-md border border-border-link bg-white">
+						<img
+							src={project.image}
+							alt={project.shortTitle}
+							class="h-full w-full object-contain p-1 transition-transform duration-300 group-hover:scale-[1.02]"
+						/>
+					</div>
 				</div>
-				<div class="p-4">
-					<h3 class="mb-1 font-serif text-base font-semibold text-text-primary">
+				<div class="p-3">
+					<h3 class="mb-0.5 font-serif text-xl font-semibold text-text-primary">
 						{project.shortTitle}
 					</h3>
 					<p class="text-sm text-text-subtle">{project.journal} ({project.year})</p>
@@ -34,72 +74,48 @@
 		{/each}
 	</div>
 
-	<button
-		onclick={() => (expanded = !expanded)}
-		class="mx-auto block rounded-md border border-border-link bg-transparent px-5 py-2.5 text-sm text-text-subtle transition-all hover:border-text-primary hover:bg-text-primary hover:text-bg"
-	>
-		{expanded ? 'Show Less' : 'Explore All Projects'}
-	</button>
+	<SectionToggleButton
+		{expanded}
+		expandLabel="Explore Full Archive"
+		onToggle={() => (expanded = !expanded)}
+	/>
 
 	{#if expanded}
 		<div transition:slide={{ duration: 300 }} class="mt-8">
 			<div class="rounded-xl bg-bg-card p-6 shadow-card">
-				{#each ['machine-learning', 'molecular-simulation', 'material-design'] as category}
-					{@const categoryProjects = researchProjects.filter((p) => p.category === category)}
-					{@const categoryTitle =
-						category === 'machine-learning'
-							? 'Machine Learning'
-							: category === 'molecular-simulation'
-								? 'Molecular Simulation'
-								: 'Material Design'}
-
-					{#if categoryProjects.length > 0}
-						<div class="mb-8 last:mb-0">
-							<h4 class="mb-4 font-serif text-lg font-semibold text-text-primary">
-								{categoryTitle}
-							</h4>
-							<div class="space-y-4">
-								{#each categoryProjects as project (project.title)}
-									<a
-										href={project.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="flex gap-4 rounded-lg border border-border-light p-3 transition-colors hover:border-border-link hover:bg-bg"
+				{#each categorizedProjects as categoryGroup (categoryGroup.id)}
+					<div class="mb-8 last:mb-0">
+						<h4 class="mb-4 font-serif text-lg font-semibold text-text-primary">
+							{categoryGroup.label}
+						</h4>
+						<div class="space-y-4">
+							{#each categoryGroup.projects as project (project.title)}
+								<a
+									href={project.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex flex-col gap-4 rounded-lg border border-border-light p-4 no-underline transition-colors hover:border-border-link hover:bg-bg md:flex-row md:items-center"
+								>
+									<div
+										class="flex h-40 w-full items-center justify-center overflow-hidden rounded-md bg-white md:h-44 md:w-[16rem] md:flex-none"
 									>
-										<div class="h-20 w-28 shrink-0 overflow-hidden rounded-md bg-border-section">
-											<img
-												src={project.image}
-												alt={project.title}
-												class="h-full w-full object-cover"
-											/>
-										</div>
-										<div class="flex-1">
-											<h5 class="mb-1 text-sm font-medium text-text-primary">
-												{project.title}
-											</h5>
-											<p class="text-xs text-text-subtle">{project.journal}</p>
-										</div>
-									</a>
-								{/each}
-							</div>
+										<img
+											src={project.image}
+											alt={project.title}
+											class="h-full w-full object-contain p-1"
+										/>
+									</div>
+
+									<div class="flex-1">
+										<h5 class="mb-1 text-lg font-medium text-text-primary">{project.title}</h5>
+										<p class="text-sm text-text-subtle">{project.journal}</p>
+									</div>
+								</a>
+							{/each}
 						</div>
-					{/if}
+					</div>
 				{/each}
 			</div>
 		</div>
 	{/if}
 </section>
-
-<style>
-	.font-serif {
-		font-family: 'Newsreader', Georgia, serif;
-	}
-
-	a {
-		border-bottom: none !important;
-	}
-
-	button {
-		cursor: pointer;
-	}
-</style>

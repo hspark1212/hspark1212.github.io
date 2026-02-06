@@ -1,5 +1,7 @@
 import type { Publication } from './types';
 
+export const featuredPaperNumbers = [23, 18, 17, 10, 15, 22] as const;
+
 export const publications: Publication[] = [
 	// 2025
 	{
