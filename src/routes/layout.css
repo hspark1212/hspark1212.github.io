@@ -14,20 +14,34 @@
 	--breakpoint-lg: 1280px;
 	--breakpoint-xl: 1680px;
 
-	/* Colors */
-	--color-accent: #3b82f6;
-	--color-heading: #777;
-	--color-body: #888;
-	--color-sidebar-bg: #1e293b;
-	--color-sidebar-text: #dbeafe;
-	--color-sidebar-icon: #bfdbfe;
-	--color-button-hover: #60a5fa;
-	--color-highlight: #5c84eb;
+	/* Warm Color Palette */
+	--color-bg: #faf8f5;
+	--color-bg-card: #ffffff;
+	--color-text-primary: #1a1408;
+	--color-text-secondary: #4a4035;
+	--color-text-muted: #6b5d4d;
+	--color-text-subtle: #8b7355;
+	--color-accent: #8b7355;
+	--color-accent-hover: #2c2416;
+	--color-heading: #1a1408;
+	--color-body: #4a4035;
+
+	/* Legacy colors for compatibility */
+	--color-sidebar-bg: #2c2416;
+	--color-sidebar-text: #faf8f5;
+	--color-sidebar-icon: #d4cfc5;
+	--color-button-hover: #6b5d4d;
+	--color-highlight: #8b7355;
 
 	/* Borders */
-	--color-border-section: #f4f4f4;
-	--color-border-link: #e4e4e4;
-	--color-border-nav: #9dc8fc48;
+	--color-border-section: #e8e4dc;
+	--color-border-light: #f0ece6;
+	--color-border-link: #d4cfc5;
+	--color-border-nav: #d4cfc5;
+
+	/* Shadows */
+	--shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+	--shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================================================
@@ -35,13 +49,19 @@
    ========================================================================== */
 
 html {
-	font-size: 16pt;
+	font-size: 16px;
 	scroll-behavior: smooth;
 }
 
 body {
-	font-family: 'Lato', sans-serif;
+	font-family:
+		'Inter',
+		-apple-system,
+		BlinkMacSystemFont,
+		sans-serif;
 	color: var(--color-body);
+	background-color: var(--color-bg);
+	line-height: 1.7;
 }
 
 /* ==========================================================================

@@ -57,3 +57,32 @@ export interface TimelineItem {
 	institution: string;
 	content: string;
 }
+
+export interface Tutorial {
+	title: string;
+	description: string;
+	type: 'notebook' | 'colab' | 'docs' | 'github';
+	url: string;
+	icon: string;
+}
+
+export interface BlogPost {
+	slug: string;
+	title: string;
+	date: string;
+	excerpt: string;
+	tags: string[];
+	published: boolean;
+}
+
+export interface FeaturedProject {
+	id: string;
+	title: string;
+	shortTitle: string;
+	description: string;
+	image: string;
+	journal: string;
+	year: number;
+	url: string;
+	github?: string;
+}
