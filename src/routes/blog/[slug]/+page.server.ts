@@ -1,7 +1,13 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { getBlogPostBySlug } from '$lib/data/blog';
+import { getBlogPostBySlug, publishedBlogPosts } from '$lib/data/blog';
 import { getBlogMarkdownBySlug, renderMarkdown } from '$lib/utils/blogContent';
+
+export const prerender = true;
+
+export function entries() {
+	return publishedBlogPosts.map((post) => ({ slug: post.slug }));
+}
 
 export const load: PageServerLoad = ({ params }) => {
 	const post = getBlogPostBySlug(params.slug);
