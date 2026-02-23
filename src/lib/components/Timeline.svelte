@@ -43,13 +43,13 @@
 
 <div class="relative py-4" bind:this={timelineRoot}>
 	{#each entries as entry, index (entry.year + entry.role)}
-		<article class="relative mb-10 flex gap-6 md:gap-8" data-index={index} data-timeline-item>
+		<article class="relative mb-10 flex flex-col gap-4 md:flex-row md:gap-8" data-index={index} data-timeline-item>
 			<div
 				class="contents transition-all duration-700 ease-out {visibleEntries[index]
 					? 'translate-y-0 opacity-100'
 					: 'translate-y-6 opacity-0'}"
 			>
-				<div class="shrink-0">
+				<div class="flex shrink-0 items-center gap-4 md:flex-col md:items-start md:gap-0">
 					<div
 						class="flex h-16 w-20 items-center justify-center rounded-xl border-2 border-border-section bg-bg-card shadow-card md:h-20 md:w-28"
 					>
@@ -59,7 +59,7 @@
 							class="max-h-[60%] max-w-[60%] object-contain opacity-90"
 						/>
 					</div>
-					<div class="mt-2 text-center">
+					<div class="md:mt-2 md:text-center">
 						<span class="text-sm font-semibold text-accent">{entry.year}</span>
 					</div>
 				</div>

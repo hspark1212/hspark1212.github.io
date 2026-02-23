@@ -25,6 +25,12 @@ npm run test:e2e     # Playwright E2E tests
 
 **Quality gates before merge**: `npm run check && npm run lint && npm run build`
 
+## Mobile
+
+- Mobile-first: default styles target mobile, `md:` (1024px) targets desktop
+- Always verify `flex-col` on mobile → `md:flex-row` on desktop for side-by-side layouts
+- Use Chrome DevTools Device Toolbar (`Cmd+Shift+M`) at ~375px to preview changes
+
 ## Project Structure
 
 ```
