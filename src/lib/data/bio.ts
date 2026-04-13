@@ -2,10 +2,17 @@ import type { BioEntry } from './types';
 
 export const bioEntries: BioEntry[] = [
 	{
-		year: '2023-Present',
+		year: '2026-Present',
+		institution: 'Lila Sciences',
+		logo: '/images/lila_sciences_logo.jpeg',
+		role: 'Research Scientist II (2026.02 - Present)',
+		description: `<p>Building agent for materials science applications</p>`
+	},
+	{
+		year: '2023-2026',
 		institution: 'Imperial College London',
 		logo: '/images/imperial_logo.png',
-		role: 'Postdoc (2023.09 - Present)',
+		role: 'Postdoc (2023.09 - 2026.02)',
 		tags: ['Generative AI', 'MLFF', 'Agentic AI'],
 		description: `
 			<p class="mb-3">London, United Kingdom</p>

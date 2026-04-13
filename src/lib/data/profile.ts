@@ -2,7 +2,7 @@ import type { Profile, SocialLink } from './types';
 
 export const profile: Profile = {
 	name: 'Hyunsoo Park',
-	title: 'Postdoctoral Researcher in Imperial College London',
+	title: 'Research Scientist II at Lila Sciences',
 	avatar: '/images/photo.jpg',
 	email: 'phs68660888@gmail.com'
 };
