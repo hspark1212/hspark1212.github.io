@@ -16,10 +16,10 @@ export const featuredProjects: FeaturedProject[] = [
 	{
 		id: 'dac-sim',
 		title:
-			'Accelerating CO2 Direct Air Capture Screening for Metal-Organic Frameworks with a Transferable Machine Learning Force Field',
+			'Accelerating CO₂ direct air capture screening for metal-organic frameworks with a transferable machine learning force field',
 		shortTitle: 'DAC-SIM',
 		description:
-			'A molecular simulation package integrating MLFFs in MOFs for CO2 Direct Air Capture',
+			'A molecular simulation package integrating MLFFs in MOFs for CO₂ direct air capture',
 		image: '/images/dac_sim_toc.jpg',
 		journal: 'Matter',
 		year: 2025,
@@ -28,7 +28,8 @@ export const featuredProjects: FeaturedProject[] = [
 	},
 	{
 		id: 'chemeleon',
-		title: 'Exploration of crystal chemical space using text-guided generative artificial intelligence',
+		title:
+			'Exploration of crystal chemical space using text-guided generative artificial intelligence',
 		shortTitle: 'Chemeleon',
 		description: 'A text-guided generative AI model for crystal structures',
 		image: '/images/chemeleon_toc.jpg',
@@ -38,7 +39,8 @@ export const featuredProjects: FeaturedProject[] = [
 	},
 	{
 		id: 'global-llm-hackathon',
-		title: 'Won 1st Place in Global LLM Hackathon for Applications in Materials Science & Chemistry',
+		title:
+			'Won 1st Place in Global LLM Hackathon for Applications in Materials Science & Chemistry',
 		shortTitle: 'LLM Hackathon',
 		description:
 			'1st Place Winner at the Global LLM Hackathon for Applications in Materials Science & Chemistry',

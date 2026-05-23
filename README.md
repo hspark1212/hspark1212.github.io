@@ -1,38 +1,42 @@
-# sv
+# Hyunsoo Park Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal academic portfolio. SvelteKit static site.
 
-## Creating a project
+| Task      | Command                                          |
+| --------- | ------------------------------------------------ |
+| dev       | `npm run dev`                                    |
+| check     | `npm run check`                                  |
+| lint      | `npm run lint`                                   |
+| build     | `npm run build`                                  |
+| e2e       | `npm run test:e2e`                               |
+| format    | `npm run format`                                 |
+| first e2e | `npx playwright install chromium`                |
+| pre-merge | `npm run check && npm run lint && npm run build` |
 
-If you're seeing this, you've probably already done this step. Congrats!
+| Area           | File                               |
+| -------------- | ---------------------------------- |
+| profile/social | `src/lib/data/profile.ts`          |
+| journey        | `src/lib/data/bio.ts`              |
+| publications   | `src/lib/data/publications.ts`     |
+| paper rules    | `docs/paper-update-guide.md`       |
+| research       | `src/lib/data/research.ts`         |
+| featured       | `src/lib/data/featuredProjects.ts` |
+| tutorials      | `src/lib/data/tutorials.ts`        |
+| blog list      | `src/lib/data/blog.ts`             |
+| blog content   | `src/lib/content/blog/*.md`        |
+| homepage       | `src/routes/+page.svelte`          |
 
-```sh
-# create a new project in the current directory
-npx sv create
+| Tech           | Use          |
+| -------------- | ------------ |
+| SvelteKit      | app          |
+| Svelte 5       | components   |
+| Tailwind 4     | styles       |
+| adapter-static | static build |
+| Playwright     | e2e          |
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+| Rule         | Note                                             |
+| ------------ | ------------------------------------------------ |
+| paper update | follow `docs/paper-update-guide.md`              |
+| content      | edit `src/lib/data/*.ts`                         |
+| deploy       | static output in `build/`                        |
+| audit        | run `npm audit`; avoid `--force` unless reviewed |

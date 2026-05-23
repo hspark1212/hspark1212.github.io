@@ -1,144 +1,91 @@
 # CLAUDE.md
 
-## Project Overview
+## Project
 
-Personal academic portfolio website for Hyunsoo Park (Materials.AI researcher). Single-page application showcasing research, publications, timeline, and contact info.
-
-## Tech Stack
-
-- **Framework**: SvelteKit v2 (Svelte 5) with TypeScript strict mode
-- **Styling**: Tailwind CSS v4 (via Vite plugin, NOT PostCSS)
-- **Build**: Vite 7, adapter-auto
-- **Testing**: Playwright (E2E only)
-- **Linting**: ESLint + Prettier (auto-format on commit via hook)
+Personal academic portfolio for Hyunsoo Park. Static SvelteKit site: journey, featured work, tutorials, blog, publications, contact.
 
 ## Commands
 
-```bash
-npm run dev          # Dev server (--host)
-npm run build        # Production build
-npm run check        # TypeScript + Svelte diagnostics
-npm run lint         # Prettier + ESLint check
-npm run format       # Prettier auto-format
-npm run test:e2e     # Playwright E2E tests
-```
+| Task      | Command                           |
+| --------- | --------------------------------- |
+| dev       | `npm run dev`                     |
+| check     | `npm run check`                   |
+| lint      | `npm run lint`                    |
+| build     | `npm run build`                   |
+| e2e       | `npm run test:e2e`                |
+| format    | `npm run format`                  |
+| first e2e | `npx playwright install chromium` |
 
-**Quality gates before merge**: `npm run check && npm run lint && npm run build`
+Quality gate: `npm run check && npm run lint && npm run build`
 
-## Mobile
+## Stack
 
-- Mobile-first: default styles target mobile, `md:` (1024px) targets desktop
-- Always verify `flex-col` on mobile → `md:flex-row` on desktop for side-by-side layouts
-- Use Chrome DevTools Device Toolbar (`Cmd+Shift+M`) at ~375px to preview changes
+| Tool            | Use                  |
+| --------------- | -------------------- |
+| SvelteKit v2    | app                  |
+| Svelte 5        | components/runes     |
+| TypeScript      | strict mode          |
+| Tailwind CSS v4 | Vite plugin          |
+| adapter-static  | static build         |
+| Playwright      | e2e                  |
+| marked          | blog markdown render |
 
-## Project Structure
+## Content Map
 
-```
-src/
-├── routes/
-│   ├── +page.svelte        # Single page (all sections)
-│   ├── +layout.svelte      # Root layout (imports CSS)
-│   └── layout.css          # Tailwind imports + theme variables + base styles
-├── lib/
-│   ├── components/         # UI components (PascalCase.svelte)
-│   │   ├── Sidebar.svelte        # Fixed right sidebar with nav + profile
-│   │   ├── MobileHeader.svelte   # Hamburger menu for mobile
-│   │   ├── Section.svelte        # Reusable section wrapper
-│   │   ├── Timeline.svelte       # Unified bio + highlights timeline
-│   │   ├── BioTimeline.svelte    # Bio-specific timeline
-│   │   ├── HighlightItem.svelte  # Individual highlight entry
-│   │   ├── ArticleCard.svelte    # Research project card
-│   │   ├── PublicationList.svelte # Publication listing
-│   │   └── ContactForm.svelte    # Contact form
-│   ├── data/               # Static data files (typed exports)
-│   │   ├── types.ts        # All TypeScript interfaces
-│   │   ├── profile.ts      # Name, links, nav items
-│   │   ├── timeline.ts     # Unified timeline data
-│   │   ├── bio.ts          # Bio/education entries
-│   │   ├── highlights.ts   # Highlight entries
-│   │   ├── research.ts     # Research projects (3 categories)
-│   │   └── publications.ts # Publication list
-│   ├── assets/             # SVG assets (favicon)
-│   └── index.ts            # Lib barrel export
-├── app.html                # HTML shell (Google Fonts: Lato)
-└── app.d.ts                # SvelteKit type declarations
-static/
-└── images/                 # All images (photos, logos, research TOC figures)
-```
+| Area               | File                               |
+| ------------------ | ---------------------------------- |
+| profile/social     | `src/lib/data/profile.ts`          |
+| journey            | `src/lib/data/bio.ts`              |
+| publications       | `src/lib/data/publications.ts`     |
+| paper update rules | `docs/paper-update-guide.md`       |
+| research archive   | `src/lib/data/research.ts`         |
+| featured carousel  | `src/lib/data/featuredProjects.ts` |
+| tutorials          | `src/lib/data/tutorials.ts`        |
+| blog metadata      | `src/lib/data/blog.ts`             |
+| blog markdown      | `src/lib/content/blog/*.md`        |
+| nav sections       | `src/lib/data/sections.ts`         |
 
-## Architecture Patterns
+## Routes
 
-### Single-Page Layout
+| Route               | File                                     | Note                       |
+| ------------------- | ---------------------------------------- | -------------------------- |
+| `/`                 | `src/routes/+page.svelte`                | single-page portfolio      |
+| `/blog/[slug]`      | `src/routes/blog/[slug]/+page.svelte`    | markdown detail            |
+| `/blog/[slug]` load | `src/routes/blog/[slug]/+page.server.ts` | prerendered static entries |
 
-- One route (`+page.svelte`) with multiple `<Section>` components
-- Fixed right sidebar (`Sidebar.svelte`) with navigation
-- IntersectionObserver tracks active section for nav highlighting
-- Mobile: hamburger menu toggles sidebar overlay
+## Components
 
-### Data Layer
+| Component                | Use                  |
+| ------------------------ | -------------------- |
+| `Nav.svelte`             | fixed top nav        |
+| `Hero.svelte`            | profile intro        |
+| `Timeline.svelte`        | journey              |
+| `Projects.svelte`        | featured + archive   |
+| `Tutorials.svelte`       | tutorial links       |
+| `BlogPreview.svelte`     | blog cards           |
+| `PublicationList.svelte` | selected/full papers |
+| `Contact.svelte`         | email/social links   |
 
-- All content lives in `src/lib/data/*.ts` as typed const exports
-- Types defined centrally in `types.ts`
-- No API calls, no CMS — pure static data
-- Research projects categorized: `machine-learning`, `molecular-simulation`, `material-design`
+Unused legacy components currently kept: `Sidebar.svelte`, `MobileHeader.svelte`, `ArticleCard.svelte`, `ContactForm.svelte`, `HeroAnimation.svelte`, `Section.svelte`.
 
-### Component Conventions
+## Svelte Rules
 
-- **Props**: Svelte 5 `$props()` with TypeScript `interface Props`
-- **State**: `$state()` runes only (no legacy `$:` or stores)
-- **Snippets**: `Snippet` type from svelte for children/slots
-- **Events**: Callback props (`onClose`, `onMenuClick`), not `createEventDispatcher`
+| Case      | Rule                                                  |
+| --------- | ----------------------------------------------------- |
+| props     | `$props()`                                            |
+| state     | `$state()`                                            |
+| derived   | `$derived()`                                          |
+| children  | `Snippet` + `{@render children()}`                    |
+| events    | callback props                                        |
+| forbidden | `export let`, `$:`, `<slot>`, `createEventDispatcher` |
 
-## Coding Standards
+## Style Rules
 
-### Svelte 5 Only (NON-NEGOTIABLE)
-
-- `$state()`, `$derived()`, `$effect()` — no legacy reactive statements
-- `$props()` — no `export let`
-- `{@render children()}` — no `<slot>`
-
-### Formatting (Prettier enforced)
-
-- Tabs for indentation
-- Single quotes
-- No trailing commas (except multiline)
-- Print width: 100
-- Plugins: prettier-plugin-svelte, prettier-plugin-tailwindcss
-
-### Imports
-
-- Use `$lib/` alias for all lib imports
-- Order: svelte → external libs → `$lib/components` → `$lib/data` → types
-
-### Styling
-
-- Tailwind utility classes (no scoped `<style>` blocks unless unavoidable)
-- Theme variables defined in `layout.css` via `@theme {}`
-- Custom colors: `accent`, `heading`, `body`, `sidebar-bg`, `sidebar-text`, etc.
-- Responsive: mobile-first, key breakpoint at `md:` (1024px)
-
-### TypeScript
-
-- Strict mode enabled
-- All data structures have interfaces in `types.ts`
-- Use `interface` (not `type`) for object shapes
-
-## Commit Format
-
-```
-type(scope): description
-# Types: feat, fix, docs, style, refactor, chore
-# Example: feat(projects): add project card component
-```
-
-## Branch Naming
-
-Feature branches: `NNN-feature-description` (e.g., `003-bio-timeline`)
-
-## Key Design Decisions
-
-1. **No SSR data loading** — all data is static imports, no `+page.server.ts`
-2. **No dark mode** — single light theme
-3. **No external dependencies** beyond SvelteKit + Tailwind ecosystem
-4. **layout.css is NOT pure Tailwind** — contains base typography and link styles as vanilla CSS (intentional, not a violation)
-5. **SVG icons inline** in components (no icon library)
+| Case    | Rule                                                   |
+| ------- | ------------------------------------------------------ |
+| imports | `$lib/` alias for lib imports                          |
+| CSS     | Tailwind utilities first                               |
+| theme   | `src/routes/layout.css`                                |
+| mobile  | mobile-first, desktop at `md:`                         |
+| format  | Prettier enforced                                      |
+| papers  | ask user before `isHighlighted`/`featuredPaperNumbers` |

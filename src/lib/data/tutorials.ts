@@ -33,13 +33,7 @@ export const tutorialTypeMeta: Record<TutorialType, TutorialTypeMeta> = {
 
 export const tutorials: Tutorial[] = [
 	{
-		title: 'MLFF Tutorial',
-		description: 'MACE fine-tuning for Metal-Organic Frameworks',
-		type: 'notebook',
-		url: 'https://github.com/hspark1212/MLFF_tutorial/blob/main/mace_finetuning.ipynb'
-	},
-	{
-		title: 'Chemeleon Tutorial',
+		title: 'Materials Discovery Tutorial',
 		description: 'Crystal discovery pipeline: SMACT, Chemeleon-DNG, MACE, Stability Analysis',
 		type: 'colab',
 		url: 'https://colab.research.google.com/github/hspark1212/chemeleon-dng/blob/main/tutorial.ipynb'
@@ -49,6 +43,12 @@ export const tutorials: Tutorial[] = [
 		description: 'VAE, LDM, and RL modules for crystal structure generation with GRPO',
 		type: 'docs',
 		url: 'https://hspark1212.github.io/chemeleon2/'
+	},
+	{
+		title: 'MLFF Tutorial',
+		description: 'MACE fine-tuning for Metal-Organic Frameworks',
+		type: 'notebook',
+		url: 'https://github.com/hspark1212/MLFF_tutorial/blob/main/mace_finetuning.ipynb'
 	},
 	{
 		title: 'Crystal-GNN Benchmark',
