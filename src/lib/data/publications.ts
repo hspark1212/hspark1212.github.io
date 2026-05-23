@@ -1,11 +1,49 @@
 import type { Publication } from './types';
 
-export const featuredPaperNumbers = [23, 18, 17, 10, 15, 22] as const;
+export const featuredPaperNumbers = [26, 22, 18, 17, 10, 15] as const;
 
 export const publications: Publication[] = [
+	// 2026
+	{
+		number: 26,
+		year: 2026,
+		authors: '<b>Hyunsoo P.</b>, Kinga O M., Panyalak D., Ryan N., Aron W.',
+		title: 'Closing the synthesis gap in computational materials design',
+		journal: 'Nature Synthesis. 5, 651-659 (2026)',
+		url: 'https://www.nature.com/articles/s44160-026-01027-2',
+		isHighlighted: true
+	},
+	{
+		number: 25,
+		year: 2026,
+		authors: 'Panyalak D., Zhenzhu L., <b>Hyunsoo P.</b>, Kinga O M., Aron W.',
+		title: 'Data-driven exploration of AB₂X₄ (X = O, S, Se, Te) spinel chemical space',
+		journal: 'Digital Discovery (2026)',
+		url: 'https://doi.org/10.1039/D6DD00064A',
+		isHighlighted: false
+	},
+	{
+		number: 24,
+		year: 2026,
+		authors: 'Tianshu L., <b>Hyunsoo P.</b>, Aron W.',
+		title: 'Data-Driven Crystal Structure Prediction for Ternary Metal Chalcogenides',
+		journal: 'Chemistry of Materials. 38, 161-170 (2026)',
+		url: 'https://doi.org/10.1021/acs.chemmater.5c02077',
+		isHighlighted: false
+	},
+
 	// 2025
 	{
 		number: 23,
+		year: 2025,
+		authors: 'Ryan N., <b>Hyunsoo P.</b>, Aron W.',
+		title: 'Crystalyse: a multi-tool agent for materials design',
+		journal: 'arXiv preprint (2025)',
+		url: 'https://arxiv.org/abs/2512.00977',
+		isHighlighted: false
+	},
+	{
+		number: 22,
 		year: 2025,
 		authors: '<b>Hyunsoo P.<sup>†</sup></b>, Aron W.<sup>†</sup>',
 		title:
@@ -15,21 +53,13 @@ export const publications: Publication[] = [
 		isHighlighted: true
 	},
 	{
-		number: 22,
-		year: 2025,
-		authors: '<b>Hyunsoo P.</b>, Kinga O M., Panyalak D., Ryan N., Aron W.',
-		title: 'Closing the synthesis gap in computational materials design',
-		journal: 'ChemRxiv preprint (2025)',
-		url: 'https://chemrxiv.org/engage/chemrxiv/article-details/68ed4bffdfd0d042d1536798',
-		isHighlighted: true
-	},
-	{
 		number: 21,
 		year: 2025,
-		authors: 'Tianshu L., <b>Hyunsoo P.</b>, Aron W.',
-		title: 'Data-Driven Crystal Structure Prediction for Ternary Metal Chalcogenides',
-		journal: 'Chemistry of Materials (2025)',
-		url: 'https://pubs.acs.org/doi/full/10.1021/acs.chemmater.5c02077',
+		authors: 'Dongin K.*, Daewon O.*, Kwangjin A., Aron W., <b>Hyunsoo P.</b>',
+		title:
+			'Unifying Design for Homogeneous and Heterogeneous Catalysis via d-Band Center Alignment',
+		journal: 'ChemRxiv preprint (2025)',
+		url: 'https://doi.org/10.26434/chemrxiv-2025-5md0h',
 		isHighlighted: false
 	},
 	{
@@ -50,7 +80,7 @@ export const publications: Publication[] = [
 		title:
 			'MLIP Arena: Advancing Fairness and Transparency in Machine Learning Interatomic Potentials via an Open, Accessible Benchmark Platform',
 		journal: 'NeurIPS, spotlight (2025)',
-		url: 'https://arxiv.org/abs/2509.20630',
+		url: 'https://papers.nips.cc/paper_files/paper/2025/hash/bfa45223cc236855dbaa5c468c809896-Abstract-Datasets_and_Benchmarks_Track.html',
 		isHighlighted: false
 	},
 	{
@@ -58,9 +88,9 @@ export const publications: Publication[] = [
 		year: 2025,
 		authors: 'Yunsung L.*, <b>Hyunsoo P.*</b>, Aron W. and Jihan K.',
 		title:
-			'Achieving high-throughput screening of CO₂ Direct Air Capture materials with a transferable machine learning force field',
+			'Accelerating CO₂ direct air capture screening for metal-organic frameworks with a transferable machine learning force field',
 		journal: 'Matter. 8, 102203 (2025)',
-		url: 'https://doi.org/10.26434/chemrxiv-2024-7w6g6',
+		url: 'https://doi.org/10.1016/j.matt.2025.102203',
 		isHighlighted: true
 	},
 	{
