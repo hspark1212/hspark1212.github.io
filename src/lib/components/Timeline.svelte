@@ -43,7 +43,11 @@
 
 <div class="relative py-4" bind:this={timelineRoot}>
 	{#each entries as entry, index (entry.year + entry.role)}
-		<article class="relative mb-10 flex flex-col gap-4 md:flex-row md:gap-8" data-index={index} data-timeline-item>
+		<article
+			class="relative mb-10 flex flex-col gap-4 md:flex-row md:gap-8"
+			data-index={index}
+			data-timeline-item
+		>
 			<div
 				class="contents transition-all duration-700 ease-out {visibleEntries[index]
 					? 'translate-y-0 opacity-100'
@@ -122,5 +126,49 @@
 
 	.prose :global(strong) {
 		color: var(--color-text-primary);
+	}
+
+	.prose :global(.falling-research-text) {
+		display: inline-block;
+		font-weight: 600;
+		color: var(--color-text-primary);
+		animation: research-drop 3.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+	}
+
+	@keyframes research-drop {
+		0% {
+			opacity: 0;
+			transform: translateY(-1.4rem);
+			text-shadow: none;
+		}
+
+		16% {
+			opacity: 1;
+			transform: translateY(0.18rem);
+			text-shadow: 0 0 0 rgba(139, 115, 85, 0);
+		}
+
+		24% {
+			transform: translateY(0);
+			text-shadow: 0 0 12px rgba(139, 115, 85, 0.32);
+		}
+
+		76% {
+			opacity: 1;
+			transform: translateY(0);
+			text-shadow: 0 0 4px rgba(139, 115, 85, 0.12);
+		}
+
+		100% {
+			opacity: 0;
+			transform: translateY(0.45rem);
+			text-shadow: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.prose :global(.falling-research-text) {
+			animation: none;
+		}
 	}
 </style>

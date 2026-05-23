@@ -2,7 +2,7 @@ import type { Profile, SocialLink } from './types';
 
 export const profile: Profile = {
 	name: 'Hyunsoo Park',
-	title: 'Research Scientist II at Lila Sciences',
+	title: 'Materials.AI Researcher',
 	avatar: '/images/photo.jpg',
 	email: 'phs68660888@gmail.com'
 };
@@ -15,7 +15,7 @@ export const socialLinks: SocialLink[] = [
 	},
 	{
 		platform: 'linkedin',
-		url: 'https://www.linkedin.com/in/hyunsoo-park-9313ab234/',
+		url: 'https://www.linkedin.com/in/hspark1212',
 		label: 'LinkedIn'
 	},
 	{
