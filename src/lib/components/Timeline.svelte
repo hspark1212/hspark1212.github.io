@@ -60,7 +60,9 @@
 						<img
 							src={entry.logo}
 							alt={entry.institution}
-							class="max-h-[60%] max-w-[60%] object-contain opacity-90"
+							class="object-contain opacity-90 {entry.institution === 'Lila Sciences'
+								? 'max-h-[82%] max-w-[82%]'
+								: 'max-h-[60%] max-w-[60%]'}"
 						/>
 					</div>
 					<div class="md:mt-2 md:text-center">
@@ -132,43 +134,97 @@
 		display: inline-block;
 		font-weight: 600;
 		color: var(--color-text-primary);
-		animation: research-drop 3.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+		white-space: nowrap;
 	}
 
-	@keyframes research-drop {
+	.prose :global(.falling-research-letters) {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.035em;
+	}
+
+	.prose :global(.falling-letter) {
+		display: inline-block;
+		opacity: 0;
+		animation: research-letter-drop 3.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+		animation-delay: calc(var(--i) * 75ms);
+		will-change: transform, opacity;
+	}
+
+	.prose :global(.falling-space) {
+		width: 0.45em;
+	}
+
+	.prose :global(.falling-idea) {
+		font-size: 1.08em;
+		transform-origin: 50% 80%;
+		animation:
+			research-letter-drop 3.6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite,
+			research-idea-glow 3.6s ease-in-out infinite;
+		animation-delay: calc(var(--i) * 75ms), calc(var(--i) * 75ms);
+	}
+
+	@keyframes research-letter-drop {
 		0% {
 			opacity: 0;
-			transform: translateY(-1.4rem);
+			transform: translateY(-1.35rem) rotate(-3deg);
 			text-shadow: none;
 		}
 
-		16% {
+		9% {
 			opacity: 1;
-			transform: translateY(0.18rem);
+			transform: translateY(0.12rem) rotate(1deg);
 			text-shadow: 0 0 0 rgba(139, 115, 85, 0);
 		}
 
-		24% {
-			transform: translateY(0);
-			text-shadow: 0 0 12px rgba(139, 115, 85, 0.32);
+		14% {
+			opacity: 1;
+			transform: translateY(0) rotate(0deg);
+			text-shadow:
+				0 0 10px rgba(139, 115, 85, 0.34),
+				0 0 18px rgba(202, 171, 110, 0.24);
 		}
 
-		76% {
+		62% {
 			opacity: 1;
 			transform: translateY(0);
-			text-shadow: 0 0 4px rgba(139, 115, 85, 0.12);
+			text-shadow: 0 0 3px rgba(139, 115, 85, 0.12);
 		}
 
+		82%,
 		100% {
 			opacity: 0;
-			transform: translateY(0.45rem);
+			transform: translateY(0.35rem);
 			text-shadow: none;
+		}
+	}
+
+	@keyframes research-idea-glow {
+		0%,
+		8% {
+			filter: drop-shadow(0 0 0 rgba(245, 183, 66, 0));
+		}
+
+		14% {
+			filter: drop-shadow(0 0 6px rgba(245, 183, 66, 0.75))
+				drop-shadow(0 0 14px rgba(255, 214, 102, 0.35));
+		}
+
+		44% {
+			filter: drop-shadow(0 0 4px rgba(245, 183, 66, 0.35));
+		}
+
+		82%,
+		100% {
+			filter: drop-shadow(0 0 0 rgba(245, 183, 66, 0));
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.prose :global(.falling-research-text) {
+		.prose :global(.falling-letter) {
 			animation: none;
+			opacity: 1;
+			transform: none;
 		}
 	}
 </style>
