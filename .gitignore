@@ -29,3 +29,8 @@ vite.config.ts.timestamp-*
 
 # Reference site (not part of project)
 hspark1212.github.io-master/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key

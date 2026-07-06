@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 ## Project Overview
 
@@ -142,7 +142,6 @@ Feature branches: `NNN-feature-description` (e.g., `003-bio-timeline`)
 3. **No external dependencies** beyond SvelteKit + Tailwind ecosystem
 4. **layout.css is NOT pure Tailwind** — contains base typography and link styles as vanilla CSS (intentional, not a violation)
 5. **SVG icons inline** in components (no icon library)
-
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:7510c1e2 -->
 ## Beads Issue Tracker
