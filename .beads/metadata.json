@@ -1,7 +1,7 @@
 {
-  "database": "dolt",
-  "backend": "dolt",
-  "dolt_mode": "embedded",
-  "dolt_database": "hspark1212_github_io",
-  "project_id": "86f8130f-d067-46c6-8a42-6b43ab8ea85b"
+	"database": "dolt",
+	"backend": "dolt",
+	"dolt_mode": "embedded",
+	"dolt_database": "hspark1212_github_io",
+	"project_id": "86f8130f-d067-46c6-8a42-6b43ab8ea85b"
 }
