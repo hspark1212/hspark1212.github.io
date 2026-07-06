@@ -26,11 +26,14 @@
 	<p class="mb-6 text-lg text-text-muted">Materials.AI Researcher at Imperial College London</p>
 
 	<p class="mx-auto mb-3 max-w-xl text-text-secondary">
-		I am a <span class="font-semibold text-text-primary">Full Stacker</span> of
-		"<span class="hero-keyphrase">Computational Materials Design</span>"
+		I am a <span class="font-semibold text-text-primary">Full Stacker</span> of "<span
+			class="hero-keyphrase">Computational Materials Design</span
+		>"
 	</p>
 
-	<div class="mx-auto mb-8 flex max-w-2xl flex-wrap items-center justify-center gap-2 text-sm sm:text-base">
+	<div
+		class="mx-auto mb-8 flex max-w-2xl flex-wrap items-center justify-center gap-2 text-sm sm:text-base"
+	>
 		<span class="text-text-subtle">Bridging</span>
 		{#each bridgeTerms as term, index (term)}
 			<span class:bridge-pill-active={index === bridgeIndex} class="bridge-pill">

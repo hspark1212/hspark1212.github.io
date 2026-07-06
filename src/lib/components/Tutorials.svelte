@@ -33,11 +33,11 @@
 
 				<div class="flex-1">
 					<div class="mb-1 flex flex-wrap items-baseline gap-2">
-						<h3 class="font-serif text-base font-semibold leading-tight text-text-primary">
+						<h3 class="font-serif text-base leading-tight font-semibold text-text-primary">
 							{tutorial.title}
 						</h3>
 						<span
-							class="-translate-y-0.5 inline-flex items-center whitespace-nowrap rounded-full bg-border-section px-2.5 py-1 text-[11px] leading-none text-text-subtle"
+							class="inline-flex -translate-y-0.5 items-center rounded-full bg-border-section px-2.5 py-1 text-[11px] leading-none whitespace-nowrap text-text-subtle"
 						>
 							{meta.label}
 						</span>

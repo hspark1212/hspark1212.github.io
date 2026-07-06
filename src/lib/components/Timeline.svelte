@@ -43,7 +43,11 @@
 
 <div class="relative py-4" bind:this={timelineRoot}>
 	{#each entries as entry, index (entry.year + entry.role)}
-		<article class="relative mb-10 flex flex-col gap-4 md:flex-row md:gap-8" data-index={index} data-timeline-item>
+		<article
+			class="relative mb-10 flex flex-col gap-4 md:flex-row md:gap-8"
+			data-index={index}
+			data-timeline-item
+		>
 			<div
 				class="contents transition-all duration-700 ease-out {visibleEntries[index]
 					? 'translate-y-0 opacity-100'
