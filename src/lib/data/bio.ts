@@ -19,7 +19,7 @@ export const bioEntries: BioEntry[] = [
 
 			<p class="mb-2 font-semibold">Main Projects</p>
 			<ul class="list-disc list-inside mb-3 space-y-1">
-				<li><a href="https://arxiv.org/abs/2511.07158v1" target="_blank" rel="noreferrer">Chemeleon2</a>: GRPO for generative modeling for materials (arXiv, 2025)</li>
+				<li><a href="https://www.nature.com/articles/s42256-026-01262-4" target="_blank" rel="noreferrer">Chemeleon2</a>: GRPO for generative modeling for materials (Nature Machine Intelligence, 2026)</li>
 				<li><a href="https://doi.org/10.1016/j.matt.2025.102203" target="_blank" rel="noreferrer">DAC-SIM</a>: A molecular simulation package integrating MLFFs in MOFs for DAC (Matter, 2025)</li>
 				<li><a href="https://www.nature.com/articles/s41467-025-59636-y" target="_blank" rel="noreferrer">Chemeleon</a>: A text-guided denoising diffusion model for materials generation (Nature Communications, 2025)</li>
 			</ul>

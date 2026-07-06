@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { featuredPaperNumbers } from '../src/lib/data/publications';
 
 async function expectSectionNearTop(page: Page, id: string) {
 	await expect
@@ -28,7 +29,9 @@ test('renders all primary sections and key UI elements', async ({ page }) => {
 	await expect(page.getByRole('button', { name: 'Explore Full Tutorial' })).toBeVisible();
 	await expect(page.getByRole('button', { name: 'Explore Full Papers' })).toBeVisible();
 	await expect(page.locator('#tutorials a')).toHaveCount(3);
-	await expect(page.locator('#publications .publication-entry')).toHaveCount(5);
+	await expect(page.locator('#publications .publication-entry')).toHaveCount(
+		featuredPaperNumbers.length
+	);
 	await expect(page.locator('a[href^="mailto:"]')).toContainText('phs68660888@gmail.com');
 });
 

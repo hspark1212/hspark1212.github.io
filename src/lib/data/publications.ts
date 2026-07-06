@@ -3,17 +3,18 @@ import type { Publication } from './types';
 export const featuredPaperNumbers = [23, 18, 17, 10, 15, 22] as const;
 
 export const publications: Publication[] = [
-	// 2025
 	{
 		number: 23,
-		year: 2025,
-		authors: '<b>Hyunsoo P.<sup>†</sup></b>, Aron W.<sup>†</sup>',
+		year: 2026,
+		authors: '<b>Hyunsoo P.<sup>†</sup></b> and Aron W.<sup>†</sup>',
 		title:
-			'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
-		journal: 'arXiv preprint (2025)',
-		url: 'https://arxiv.org/abs/2511.07158v1',
+			'Guiding generative models to uncover diverse and novel crystals via reinforcement learning',
+		journal: 'Nature Machine Intelligence (2026)',
+		url: 'https://www.nature.com/articles/s42256-026-01262-4',
 		isHighlighted: true
 	},
+
+	// 2025
 	{
 		number: 22,
 		year: 2025,

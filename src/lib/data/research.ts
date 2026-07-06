@@ -20,9 +20,9 @@ export const researchProjects: ResearchProject[] = [
 			'Chemeleon 2: A reinforcement learning framework for crystal structure generation using GRPO',
 		image: '/images/chemeleon2_toc.png',
 		title:
-			'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
-		journal: 'arXiv preprint (2025)',
-		url: 'https://arxiv.org/abs/2511.07158v1'
+			'Guiding generative models to uncover diverse and novel crystals via reinforcement learning',
+		journal: 'Nature Machine Intelligence (2026)',
+		url: 'https://www.nature.com/articles/s42256-026-01262-4'
 	},
 	{
 		category: 'machine-learning',

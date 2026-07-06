@@ -4,13 +4,13 @@ export const featuredProjects: FeaturedProject[] = [
 	{
 		id: 'chemeleon2',
 		title:
-			'Guiding Generative Models to Uncover Diverse and Novel Crystals via Reinforcement Learning',
+			'Guiding generative models to uncover diverse and novel crystals via reinforcement learning',
 		shortTitle: 'Chemeleon2',
 		description: 'A reinforcement learning framework for crystal structure generation using GRPO',
 		image: '/images/chemeleon2_toc.png',
-		journal: 'arXiv preprint',
-		year: 2025,
-		url: 'https://arxiv.org/abs/2511.07158v1',
+		journal: 'Nature Machine Intelligence',
+		year: 2026,
+		url: 'https://www.nature.com/articles/s42256-026-01262-4',
 		github: 'https://github.com/hspark1212/chemeleon2'
 	},
 	{
@@ -28,7 +28,8 @@ export const featuredProjects: FeaturedProject[] = [
 	},
 	{
 		id: 'chemeleon',
-		title: 'Exploration of crystal chemical space using text-guided generative artificial intelligence',
+		title:
+			'Exploration of crystal chemical space using text-guided generative artificial intelligence',
 		shortTitle: 'Chemeleon',
 		description: 'A text-guided generative AI model for crystal structures',
 		image: '/images/chemeleon_toc.jpg',
@@ -38,7 +39,8 @@ export const featuredProjects: FeaturedProject[] = [
 	},
 	{
 		id: 'global-llm-hackathon',
-		title: 'Won 1st Place in Global LLM Hackathon for Applications in Materials Science & Chemistry',
+		title:
+			'Won 1st Place in Global LLM Hackathon for Applications in Materials Science & Chemistry',
 		shortTitle: 'LLM Hackathon',
 		description:
 			'1st Place Winner at the Global LLM Hackathon for Applications in Materials Science & Chemistry',
