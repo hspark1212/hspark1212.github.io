@@ -16,10 +16,10 @@ export const featuredProjects: FeaturedProject[] = [
 	{
 		id: 'dac-sim',
 		title:
-			'Accelerating CO2 Direct Air Capture Screening for Metal-Organic Frameworks with a Transferable Machine Learning Force Field',
+			'Accelerating CO₂ direct air capture screening for metal-organic frameworks with a transferable machine learning force field',
 		shortTitle: 'DAC-SIM',
 		description:
-			'A molecular simulation package integrating MLFFs in MOFs for CO2 Direct Air Capture',
+			'A molecular simulation package integrating MLFFs in MOFs for CO₂ direct air capture',
 		image: '/images/dac_sim_toc.jpg',
 		journal: 'Matter',
 		year: 2025,

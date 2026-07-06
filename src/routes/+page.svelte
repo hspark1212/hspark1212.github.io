@@ -27,10 +27,7 @@
 
 <svelte:head>
 	<title>Hyunsoo Park | Materials.AI</title>
-	<meta
-		name="description"
-		content="Hyunsoo Park - Materials.AI Researcher at Imperial College London"
-	/>
+	<meta name="description" content="Hyunsoo Park - Materials.AI Researcher" />
 </svelte:head>
 
 <Nav {activeSection} />

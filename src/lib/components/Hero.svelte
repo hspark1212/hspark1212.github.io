@@ -23,7 +23,7 @@
 		{profile.name}
 	</h1>
 
-	<p class="mb-6 text-lg text-text-muted">Materials.AI Researcher at Imperial College London</p>
+	<p class="mb-6 text-lg text-text-muted">Materials.AI Researcher</p>
 
 	<p class="mx-auto mb-3 max-w-xl text-text-secondary">
 		I am a <span class="font-semibold text-text-primary">Full Stacker</span> of "<span
