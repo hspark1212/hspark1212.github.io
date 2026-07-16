@@ -17,6 +17,15 @@ export const researchProjects: ResearchProject[] = [
 	{
 		category: 'machine-learning',
 		description:
+			'PEC-MOF: a data-driven framework fine-tuning MOFTransformer to design MOFs for photoelectrochemical reactions',
+		image: '/images/pec_mof_toc.png',
+		title: 'Data-Driven Design of Metal-Organic Frameworks for Photoelectrochemical Reactions',
+		journal: 'ACS Energy Letters (2026)',
+		url: 'https://pubs.acs.org/doi/10.1021/acsenergylett.6c00550'
+	},
+	{
+		category: 'machine-learning',
+		description:
 			'Chemeleon 2: A reinforcement learning framework for crystal structure generation using GRPO',
 		image: '/images/chemeleon2_toc.png',
 		title:

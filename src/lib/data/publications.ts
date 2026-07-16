@@ -1,9 +1,18 @@
 import type { Publication } from './types';
 
-export const featuredPaperNumbers = [22, 26, 18, 17, 10, 15] as const;
+export const featuredPaperNumbers = [22, 26, 18, 17, 27, 10, 15] as const;
 
 export const publications: Publication[] = [
 	// 2026
+	{
+		number: 27,
+		year: 2026,
+		authors: '<b>Hyunsoo P.</b>, Tianshu L., Ashna J., Seung-Jae S., Aron W.',
+		title: 'Data-Driven Design of Metal-Organic Frameworks for Photoelectrochemical Reactions',
+		journal: 'ACS Energy Letters (2026)',
+		url: 'https://pubs.acs.org/doi/10.1021/acsenergylett.6c00550',
+		isHighlighted: true
+	},
 	{
 		number: 26,
 		year: 2026,

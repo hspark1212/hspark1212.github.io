@@ -20,8 +20,9 @@ export const bioEntries: BioEntry[] = [
 			<p class="mb-2 font-semibold">Main Projects</p>
 			<ul class="list-disc list-inside mb-3 space-y-1">
 				<li><a href="https://www.nature.com/articles/s42256-026-01262-4" target="_blank" rel="noreferrer">Chemeleon2</a>: GRPO for generative modeling for materials (<strong>Nature Machine Intelligence</strong>, 2026)</li>
-				<li><a href="https://doi.org/10.1016/j.matt.2025.102203" target="_blank" rel="noreferrer">DAC-SIM</a>: A molecular simulation package integrating MLFFs in MOFs for DAC (<strong>Matter</strong>, 2025) - Featured in <a href="https://news.kaist.ac.kr/newsen/html/news/?mng_no=48410&mode=V" target="_blank" rel="noreferrer">KAIST News</a></li>
 				<li><a href="https://www.nature.com/articles/s41467-025-59636-y" target="_blank" rel="noreferrer">Chemeleon</a>: A text-guided denoising diffusion model for materials generation (<strong>Nature Communications</strong>, 2025)</li>
+				<li><a href="https://pubs.acs.org/doi/10.1021/acsenergylett.6c00550" target="_blank" rel="noreferrer">PEC-MOF</a>: Data-driven design of MOFs for photoelectrochemical reactions (<strong>ACS Energy Letters</strong>, 2026)</li>
+				<li><a href="https://doi.org/10.1016/j.matt.2025.102203" target="_blank" rel="noreferrer">DAC-SIM</a>: A molecular simulation package integrating MLFFs in MOFs for DAC (<strong>Matter</strong>, 2025) - Featured in <a href="https://news.kaist.ac.kr/newsen/html/news/?mng_no=48410&mode=V" target="_blank" rel="noreferrer">KAIST News</a></li>
 			</ul>
 
 			<p class="mb-2 font-semibold">Perspectives</p>

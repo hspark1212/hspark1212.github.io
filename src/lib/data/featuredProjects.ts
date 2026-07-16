@@ -14,6 +14,17 @@ export const featuredProjects: FeaturedProject[] = [
 		github: 'https://github.com/hspark1212/chemeleon2'
 	},
 	{
+		id: 'pec-mof',
+		title: 'Data-Driven Design of Metal-Organic Frameworks for Photoelectrochemical Reactions',
+		shortTitle: 'PEC-MOF',
+		description:
+			'A data-driven framework fine-tuning MOFTransformer to design MOFs for photoelectrochemical reactions',
+		image: '/images/pec_mof_toc.png',
+		journal: 'ACS Energy Letters',
+		year: 2026,
+		url: 'https://pubs.acs.org/doi/10.1021/acsenergylett.6c00550'
+	},
+	{
 		id: 'dac-sim',
 		title:
 			'Accelerating CO₂ direct air capture screening for metal-organic frameworks with a transferable machine learning force field',
